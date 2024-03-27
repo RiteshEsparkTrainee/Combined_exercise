@@ -1,0 +1,303 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <style>
+        .maincontainer
+        {
+            margin: 0 auto;
+            max-width: 1080px;    
+            
+        }
+        #loginForm
+        {
+            padding: 25px;
+            border: 2px solid black;
+            background-color:antiquewhite;
+            margin: 0 auto;
+            align-items: center;
+            width: 500px;
+       
+           
+           
+        }
+        input{
+            margin-top: 2px;
+            width : 450px;
+            height : 40px;
+            border : 1px solid black;
+            border-radius: 5px;
+        }
+        h2
+        {
+            text-align: center;
+            color: white;
+        }
+        #loginBtn
+        {
+          
+            height: 40px;
+            margin-top: 20px;
+            font-size: 20px;
+            background-color: green;
+            border: 1px solid black;
+            border-radius: 5px;
+        }
+        label
+        {
+            font-weight: bold;
+        }
+        .error
+        {
+            color: red;
+            font-size: 12px;
+        }
+        .registerLink
+        {
+            margin-top: 10px;
+        }
+        .heading
+        {
+            color: white;
+            font-weight: bold;
+        }
+        body{
+            background-image: url('login.png');
+            background-size: cover;
+        }
+        .login_page
+        {
+            border-radius: 80px;
+        }
+        #showPassword
+        {
+            width:30px;
+            margin: 0 auto;
+          
+        }
+        #hidePassword
+        {
+            width:30px;
+            margin: 0 auto;
+        }
+        .showPassword
+        {
+            margin-top: 40px;
+        }
+       .password_show_items
+       {
+        display: flex;
+       }
+       #refresh
+       {
+        width:25px;
+        height: 20px;
+         margin-left: 10px;
+       }
+       .mainCaptchaItems
+       {
+        display: flex;
+        align-items: center;
+       }
+    </style>
+</head>
+<body>
+    <div class="maincontainer">
+        <h2>Jaiswal Ritesh : 24DEV068</h2>
+        <h2 class="heading">Login User</h2>
+        <div class="login_page"  >
+            <form id="loginForm" autocomplete="off">
+                <div id="invalidMessage" class="error"></div>
+            <label for="username">Enter Your Username  </label><br>
+                    <input type="text" id="username" name="username" class="required" 
+                        tabindex="1"><br>
+                    <span class="error" id="error-username"></span>
+                    <br>
+                    <label for="password">Enter Your Password  </label><br>
+            <div class="password_show_items">
+               
+                <input type="text" id="password" name="password" class="required" 
+                tabindex="1">
+                
+                    <img src="hide_pass.png" id="showPassword" onclick="showPass()">
+                    <img src="show_password.jpeg" hidden id="hidePassword" onclick="hidePass()">
+                    
+               
+            </div>
+            <div id="capatcha_items" hidden>
+                <label for="mainCaptcha">Captcha</label>
+                <div class="mainCaptchaItems">
+                   
+                    <input type="text" name="mainCaptcha" readonly id="mainCaptcha">
+                    <img src="refresh.png" id="refresh" onclick="generateCaptcha(event)">
+                </div>
+                <div><p id="captchaError" class="error"></p></div>
+                <div class="enterCaptcha">
+                    <label for="checkCaptcha">Enter Captcha</label>
+                    <input type="text" id="enterCaptchaValue">
+                </div>               
+
+            </div>
+           
+           <br>
+            
+        <span class="error" id="error-password"></span>
+        <br>
+        <input type="button" id="loginBtn" onclick="checkDetails()" value="Login">
+        <div class="registerLink">
+            <span>Don't have an account?</span><a href="/register">sign-up</a>
+        </div>
+        
+        </form>
+       
+        </div>
+
+
+    </div>
+    <script>
+      
+        
+        var count = 0;
+        var captcha_active = false;
+        console.log('mycount',count)
+        var password= document.getElementById('password')
+        if(password.type=== "text")
+        {
+            password.type = "password"
+        }
+
+        function showPass()
+        {
+            document.getElementById('showPassword').style.display='none'
+            document.getElementById('hidePassword').style.display='block'
+            if(password.type=== "password")
+            {
+                password.type = "text"
+            }
+
+        }
+        function hidePass()
+        {
+            document.getElementById('showPassword').style.display='block'
+            document.getElementById('hidePassword').style.display='none'
+            if(password.type=== "text")
+            {
+                password.type = "password"
+            }
+        }
+         async function checkDetails()
+         {
+            document.getElementById("enterCaptchaValue").innerHTML=""
+            let validatedataresult= validateData()
+            console.log("login validation ",validatedataresult)
+               if(validatedataresult==false) { 
+                    console.log("please validate all the fields")
+               }
+               else
+                {
+                    var form = document.getElementById("loginForm")
+                    var details = new FormData(form)
+                    const params = new URLSearchParams(details)
+                    console.log(params)
+                    const jobData= await new Response(params).text()
+                    console.log(jobData)
+                    const response = await fetch("http://localhost:8083/logSave",{
+                        method : "POST",
+                       
+                        body : params
+                    })
+                    const text = await response.text();
+                    if(response.status == 200)
+                    {
+                        console.log("fetch done")
+                        document.getElementById("invalidMessage").innerHTML=text
+                        if(text==="invalid credential")
+                        {
+
+                            ++count;
+                            if(count==3){
+                                document.getElementById("captchaError").innerHTML=""
+                            document.getElementById("capatcha_items").style.display='block';
+                            captcha_active=true;
+                            generateCaptcha(event)
+                            }
+                        }
+                       
+                       
+                    }
+                    let status = document.getElementById("invalidMessage").innerHTML
+                    if(status == 'Login Successful')
+                    {
+                        window.location.href="/login/save"
+                    }
+                    
+                   
+                    console.log("all data validated")
+                } 
+          }
+         
+          function generateCaptcha(event)
+         {
+             
+             var alpha = new Array('A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z','a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z');
+             var i;
+             for (i=0;i<4;i++){
+               var a = alpha[Math.floor(Math.random() * alpha.length)];
+               var b = alpha[Math.floor(Math.random() * alpha.length)];
+               var c = alpha[Math.floor(Math.random() * alpha.length)];
+               var d = alpha[Math.floor(Math.random() * alpha.length)];
+              }
+            var code = a + '' + b + '' + '' + c + '' + d;
+            document.getElementById("mainCaptcha").value = code
+            var el = document.getElementById('mainCaptcha');
+            el.style.fontFamily = 'Geneva, Verdana, sans-serif';
+            el.style.fontSize = 'large';
+          }
+          
+          function validateData(){
+                
+       
+             let eleList = document.querySelectorAll('.required')
+            //   console.log(eleList)
+
+              let errors = document.querySelectorAll('.error')
+
+                for (let err of errors) {
+                    err.innerHTML = ""
+                }                 
+
+
+              let error_show = false;
+                for (let i = 0; i < eleList.length; i++) {
+                    if (eleList[i].value == "") {
+                        console.log('error', eleList[i].id)
+                        document.getElementById('error-' + eleList[i].id).innerHTML = eleList[i].id + " can't be none"
+                        error_show=true;
+                    }
+
+                }
+                if(error_show)
+                {
+                    return false;
+                }
+                if(captcha_active==true)
+                {
+                    var mainCaptcha = document.getElementById("mainCaptcha").value.trim();
+                    var enterCaptcha = document.getElementById("enterCaptchaValue").value.trim();
+                    if(enterCaptcha.length==0)
+                    {
+                        document.getElementById("captchaError").innerHTML="Please Enter your captcha"
+                        return false;
+                    }
+                    if(mainCaptcha !== enterCaptcha)
+                    {
+                        document.getElementById("captchaError").innerHTML="Captcha Does Not Match"
+                        return false;
+                    }
+                }
+                return true
+            }
+    </script>
+</body>
+</html>

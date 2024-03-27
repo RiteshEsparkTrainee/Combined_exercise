@@ -1,0 +1,126 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Table Add Subtract</title>
+</head>
+<style>
+   table
+   {
+    border: 1px solid black;
+   }
+
+   #add_columns
+   {
+    margin-left: 300px;
+   }
+
+        tr,td {
+            border: 1px solid rgb(44, 34, 187);
+            height: 100px;
+            width: 100px;
+        }
+        h1,h2{
+            text-align: center;
+            color: gold;
+        }
+        
+        tr:nth-of-type(odd) td:nth-of-type(odd) ,tr:nth-of-type(even) td:nth-of-type(even)
+        {
+            background-color: rgba(5, 1, 1, 0.705);
+        }        
+        
+</style>
+<h1>Name:-Ritesh Jaiswal</h1>
+<h1>Employee_Id:-24DEV068</h1>
+<h2>Exercise-1</h2>
+
+
+
+<body>
+    
+<button type="button" id="add_columns" class = "columns1" onclick="add_columns()">+</button>
+
+<button type="button" id="subtract_columns" onclick="subtract_columns()">-</button>
+    <table id="dataTable" width="350px">
+        <tr class = row id="row1" name ="row">
+            <TD ></TD>  
+                    <TD></TD>  
+                    
+        </tr>
+
+        <tr class = row id="row2" name ="row">
+            <td>
+
+            </td>
+            <td>
+
+            </td>
+        </tr>
+    </table>
+    <button type="button" id="add_rows" class = "rows" onclick="add_rows('dataTable')">+</button>
+
+    <button type="button" id="subtract_rows" class ="rows" onclick="subtract_rows()">-</button>
+    <script>
+        function add_columns()
+        {
+                var row = document.querySelectorAll("tr") 
+                for(i=0;i<row.length;i++)
+                {
+                    row[i].insertCell()
+                }
+        }
+        function subtract_columns()
+        {
+           var table = document.getElementById("dataTable")
+          
+           var row = document.querySelectorAll("tr")
+           var x = document.getElementById("row1").cells.length
+            for(i=0;i<row.length;i++)
+            {
+
+                if(x<=2)
+                {
+                    alert("Can't delete")
+                    break;
+                }
+                row[i].deleteCell(x-1);
+
+            }
+            
+        }
+     
+
+        function add_rows(tableID)
+        {
+            var table = document.getElementById(tableID);  
+        
+        var x = document.getElementById("row1").cells.length
+        var row=table.insertRow()
+
+        for(i=0;i<x;i++)
+        {
+                row.insertCell()
+        }   
+        
+         
+            
+        }
+
+        function subtract_rows()
+        {
+            var table = document.getElementById("dataTable")
+            var row = document.querySelectorAll("tr")
+            if(row.length > 2)
+            {
+                table.deleteRow(row.length-1)
+            }
+            else
+            {
+                alert("can't delete")
+            }
+
+        }
+    </script>
+</body>
+</html>

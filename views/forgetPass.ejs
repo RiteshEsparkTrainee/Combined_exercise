@@ -1,0 +1,222 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forget Password</title>
+    <style>
+        h2{
+            text-align: center;
+            color: white;
+        }
+        #forgetPassError
+        {
+            margin-left: 20px;
+            font-weight: bold;
+           
+        }
+        
+        .register{
+            text-align: center;
+            margin-top: 30px;
+        
+            background-color: chocolate;  
+            width: 180px;
+            height: 30px;
+            margin-left: 125px;
+            border-radius: 10px;
+            text-align: center;
+        }
+        .maincontainer
+        {
+            max-width: 1080px;
+            margin: 0 auto;
+        }
+        body{
+            background-image: url('forgetPass2.jpg');
+            background-size: cover;
+        }
+        
+        .card
+        {
+           
+            width :450px;
+            
+            border-radius: 25px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+        }
+        label{
+            font-weight: bold;
+            color: white;
+            font-size: 30px;
+            margin-left: 100px;
+            
+        }
+        #pasShow > label{
+            font-weight: bold;
+            margin-left: 25px;
+            color: white;
+        }
+        #passShow > input{
+            margin-top: 25px;
+            padding: 10px;
+        }
+        input
+        {
+            height: 60px;
+            width : 550px;
+            margin: 0 auto;
+            border: 2px solid black;
+        }
+      
+        #forgetPassBtn
+        {
+            background-color:antiquewhite;
+            margin-left: 20px;
+            border-radius: 8px;
+            font-size: 40px;
+        }
+        .username_text
+        {
+            margin-top: 10px;
+            padding : 20px
+        }
+        #validatePassword
+        {
+            font-size: 250px;
+        }
+    </style>
+</head>
+<body>
+    <div class="maincontainer">
+    <h2>Jaiswal Ritesh : 24DEV068</h2>    
+    <h2>Reset Password</h2>
+
+    <div class="card">
+       
+        <form id="ForgetPassForm">
+            <span class="error" id="forgetPassError"></span>
+            <div id="emailShow">
+            <div class="label">
+                <label for="forgetPass">Enter your email</label>
+            </div>
+        
+            <div class="username_text">
+                <input type="text" id="username" name ="username">
+            </div>
+            <input type="button" id = "forgetPassBtn" value = "Verify" onclick="checkData()">
+            </div>
+            </form>
+            <form id="ForgetPassForm2">
+            <div id="pasShow" hidden>
+                <input type="hidden" name="username" id="username1">
+                <label for="password1">Enter Your Password</label>
+                <input type="text" name="password" id="password1">
+                <br>
+                <label for="password2">Confirm Password</label>
+                <input type="text"  id="password2">
+            </div>
+           
+            <div>
+                
+                <input type="button" hidden id = "validatePassword" value ="submit" onclick = "validateData2()">
+            
+            </div>
+          </form>
+   
+       
+
+
+    </div>
+    <script>
+        let username =document.getElementById('username').value.trim();
+        console.log(username)
+        document.getElementById('username1').value=username
+       async  function checkData()
+        {
+            let validatedataresult = validateData()
+            console.log("my result",validatedataresult)
+            if(validatedataresult!==false)
+            {
+                var form = document.getElementById("ForgetPassForm")
+                    var details = new FormData(form)
+                    const params = new URLSearchParams(details)
+                    const fordata = await new Response(params).text()
+                    const response = await fetch("http://localhost:8083/register/forgetPassword",{
+                        method : "POST",
+                        headers :{
+                            'Content-type' : 'application/x-www-form-urlencoded',
+                        },
+                        body : fordata
+                    })
+                    let response_text =await response.text()
+                    console.log(response_text)
+                    if(response_text=='emailverified')
+                    {
+                        document.getElementById('pasShow').style.display='block'
+                        document.getElementById('forgetPassBtn').style.display='none'
+                        document.getElementById('validatePassword').style.display = 'block'
+                        document.getElementById('emailShow').style.display='none'
+        
+                    }
+                    else
+                    {
+                        document.getElementById('forgetPassError').innerHTML = "username does not exist"
+                    }
+            }
+        }
+        async function validateData2()
+        {
+            let validatePasswordResult = validatePassword()
+             if(validatePasswordResult!==false)
+             {
+                var form = document.getElementById("ForgetPassForm2")
+                    var details = new FormData(form)
+                    const params = new URLSearchParams(details)
+                    const response = await fetch("http://localhost:8083/register/forgetPassword",{
+                        method : "POST",
+                       
+                        body : params
+                    })
+                    let response_text =await response.text()
+                    console.log(response_text)
+                    if(response.status == 200)
+                    {
+                        window.location.href="forgetPass/save"
+                    }
+             }
+        }
+        function validatePassword()
+        {
+            let password1 = document.getElementById("password1").value.trim()
+            let password2 = document.getElementById("password2").value.trim()
+            console.log('password1',password1)
+            console.log('password2',password2)
+            if(password1 != password2 )
+            {
+                document.getElementById('forgetPassError').innerHTML="Please provide valid password"
+                return false
+            }
+            return true;
+        }
+
+        function validateData()
+
+        {
+            document.getElementById('forgetPassError').innerHTML=""
+     
+            let username = document.getElementById('username').value.trim()
+            if(username.length==0)
+            {
+                document.getElementById('forgetPassError').innerHTML="Please provide your email"
+                return false
+            }
+
+            
+            return true;
+        }
+    </script>
+
+</body>
+</html>
