@@ -3,7 +3,7 @@ var con = mysql.createConnection({
     host: "localhost",
     user: "root",
     password: "password",
-    database: "register_login"
+    database: "db_exercises_schemas"
   });
 
   module.exports=con

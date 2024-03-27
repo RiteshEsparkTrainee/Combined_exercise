@@ -1,0 +1,195 @@
+<html lang="en">
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="css/style.css" rel="stylesheet" type="text/css">
+    <style>
+        a {
+            height: 60px;
+            font-size: 20px;
+            display: flex;
+            font-size: 60px;
+            text-decoration: none;
+            
+
+        }
+
+        .pagingComponent {
+            display: flex;
+           
+            margin: 0 auto;
+            font-size: 60px;
+        }
+        table 
+        {
+            max-width: 880px;
+            margin: 0 auto;
+            border: 2px solid black;
+        }
+        td
+        {
+            border: 1px solid black;
+        }
+        th{
+            border: 1px solid black;
+        }
+        .maincontainer
+        {
+            max-width: 1080px;
+            margin: 0 auto;
+        }
+        form 
+        {
+            margin-left: 450px;
+            
+            
+        }
+         option
+        {
+            font-size: 20px;
+        }
+        h2
+        {
+            text-align: center;
+        }
+    </style>
+      
+</head>
+
+<body>
+    <div class="maincontainer">
+
+    <h2>User Details</h2>
+    <form action="/listdatabase" method="get">
+        <select name="order" id="order">
+            <option value="asc">Ascending</option>
+            <option value="desc">Descending</option>
+        </select>
+        <select name="column" id="column">
+            <option value="firstname"> FirstName</option>
+            <option value="lastname"> LastName</option>
+        </select>
+        <input type="submit" value="submit">
+    </form>
+    <div class="pagingComponent">
+
+        <% if(currpage>1){ %>
+        <a class="fa-solid fa-angles-left"  href="/listdatabase?p=1&order=<%= order %>&column=<%= column %>"></a><%}%>
+            
+        <% if(currpage>1){ %>
+                <a class="fa-solid fa-angle-left" class="disableleft" href="/listdatabase?p=<%= Number(currpage)-1 %>&order=<%= order %>&column=<%= column %>"></a><%}%>
+            
+                    <div>
+                        <%=currpage %>        </div>
+                    <% if(currpage<10){ %>
+                        <a class="fa-solid fa-angle-right" class="displayRight"  href="/listdatabase?p=<%= Number(currpage)+1 %>&order=<%= order %>&column=<%= column %>"></a><%}%>
+                              
+                        <% if(currpage<10){ %>
+                                <a class="fa-solid fa-angles-right"  href="/listdatabase?p=250&order=<%= order %>&column=<%= column %>"></a><%}%>
+</div>    
+    <table>
+        <tr>
+            <th>Student ID </th>
+            <th>FirstName</th>
+            <th>LastName</th>
+            <th>Email</th>
+            <th>City</th>
+            <th>Country</th>
+            <th>Gender</th>
+            <th>Father Name</th>
+            <th>Mother Name</th>
+            <th>Date of Joining</th>
+            <th>Created Date</th>
+        </tr>
+      
+        <% for(let i=0 ; i< userdata.length;i++){ %>
+            <div>
+                <tr>
+                    <td>
+                        <%= userdata[i].student_id %>
+                    </td>
+                    <td>
+                        <%= userdata[i].firstname %>
+                    </td>
+                    <td>
+                        <%= userdata[i].lastname %>
+                    </td>
+                    <td>
+                        <%= userdata[i].email %>
+                    </td>
+
+                    <td>
+                        <%= userdata[i].city %>
+                    </td>
+                    <td>
+                        <%= userdata[i].country %>
+                    </td>
+                    <td>
+                        <%= userdata[i].Gender %>
+                    </td>
+                    <td>
+                        <%= userdata[i].father_name %>
+                    </td>
+
+                    <td>
+                        <%= userdata[i].mother_name %>
+                    </td>
+                    <td>
+                        <%= userdata[i].date_of_joining %>
+                    </td>
+                    <td>
+                        <%= userdata[i].created_date %>
+                    </td>
+
+
+
+
+                </tr>
+
+                <% } %>
+
+
+    </table>
+
+</div>
+</body>
+<script>
+
+    const queryString = window.location.search;
+    const urlparams = new URLSearchParams(queryString);
+
+    leftmostevent = () => {
+        let page = 1;
+        window.location.href = `http://localhost:8002/listdatabase?p=${page}`
+    }
+
+    leftEvent = () => {
+        let param = urlparams.get("p");
+        param--;
+        if (isNaN(param) || param < 1) {
+            document.getElementsByClassName('disableleft').style.display = 'none'
+        }
+        else {
+            window.location.href = `http://localhost:8002/listdatabase?p=${param}`
+        }
+    }
+    moveRight1 = () => {
+        let param = urlparams.get("p");
+        param++;
+        if (param > 250) {
+            document.getElementsByClassName('disableRight').style.display = 'none'
+        }
+        else {
+            window.location.href = `http://localhost:8002/listdatabase?p=${param}`
+        }
+    }
+    rightMostEvent = () => {
+        let page = 250;
+        window.location.href = `http://localhost:8002/listdatabase?p=${page}`
+    }
+
+</script>
+
+</html>

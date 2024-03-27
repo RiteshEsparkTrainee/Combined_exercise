@@ -115,10 +115,10 @@ app.get('/sorting',sorting)
 let eventsJavascript = require("./controller/javascriptEvents/eventsJS.js")
 app.get('/eventsJavascript',eventsJavascript)
 
-// catch(err)
-// {
-//     console.log("Something went wrong in Cucu Cube")
-// }
+
+//6th task 
+let pagination_orderBy = require("./controller/pagination_orderBy/pagination_orderBy_controller.js")
+app.get('/listdatabase',pagination_orderBy)
    
 
 
