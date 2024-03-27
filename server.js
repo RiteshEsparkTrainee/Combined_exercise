@@ -119,6 +119,10 @@ app.get('/eventsJavascript',eventsJavascript)
 //6th task 
 let pagination_orderBy = require("./controller/pagination_orderBy/pagination_orderBy_controller.js")
 app.get('/listdatabase',pagination_orderBy)
+
+//7th task 
+let attendenceReport = require("./controller/attendence_report/attendence_report_controller.js")
+app.get('/report',attendenceReport)
    
 
 

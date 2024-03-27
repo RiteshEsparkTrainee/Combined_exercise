@@ -1,0 +1,105 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="css/style.css" rel="stylesheet" type="text/css">
+    <style>
+        a {
+            height: 60px;
+            font-size: 20px;
+            display: flex;
+            font-size: 60px;
+        }
+
+        .pagingComponent {
+            display: flex;
+            margin-left: 600px;
+            font-size: 60px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Ritesh Jaiswal : 24DEV068</h1>
+    
+    <div class="pagingComponent">
+
+            <% if(currpage>1){ %>
+            <a class="fa-solid fa-angles-left"  href="/report?p=1&month=<%= month %>&year=<%= year %>"></a><%}%>
+                
+            <% if(currpage>1){ %>
+                    <a class="fa-solid fa-angle-left" class="disableleft"  href="/report?p=<%= Number(currpage)-1  %>&month=<%= month %>&year=<%= year %>"></a><%}%>
+                
+
+
+                        <div>
+                            <%=currpage %>
+                        </div>
+
+
+                        <% if(currpage<10){ %>
+                            <a class="fa-solid fa-angle-right" class="displayRight" href="/report?p=<%= Number(currpage)+1  %>&month=<%= month %>&year=<%= year %>"></a><%}%>
+                 
+                      
+                            <% if(currpage<10){ %>
+                                    <a class="fa-solid fa-angles-right" href="/report?p=<%= 10  %>&month=<%= month %>&year=<%= year %>"></a><%}%>
+    </div>
+    <form action="/report" method="get">
+        <label for="month" >Choose a Month:</label>
+        <% if(month=='december') {%>
+        <select name="month" id="month">
+          <option value="december" selected>December</option>
+          <option value="january">January</option>
+          <option value="february">February</option>
+         
+        </select> 
+        <% } %>
+        <% if(month=='january') {%>
+            <select name="month" id="month">
+              <option value="december">December</option>
+              <option value="january" selected>January</option>
+              <option value="february">February</option>
+             
+            </select> 
+            <% } %>
+            <% if(month=='february') {%>
+                <select name="month" id="month">
+                  <option value="december" >December</option>
+                  <option value="january">January</option>
+                  <option value="february" selected>February</option>
+                 
+                </select> 
+                <% } %>
+        <select name="year" id="year">
+         
+            <option value="2024">2024</option>
+            <option value="2023">2023</option>
+            
+        </select>
+        <input type="submit" value ="submit">
+    </form>
+    <h5>Attendance Report of month <%= month %></h5>
+    <table>
+        <tr>
+            <th>student_id</th>
+            <th>First Name</th>
+           
+            <th>Present Days</th>
+            <th> Attendance Percentage</th>
+          
+            <% for(let i=0;i<data.length;i++) {%>
+                <tr>
+                <td><%= data[i].student_id %></td>
+                <td><%= data[i].firstname %></td>
+                <td><%= data[i].atten_count %></td>
+                <td><%= (data[i].percentage).toFixed(2) %>%</td>
+                
+                </tr>
+                <% } %>
+        </tr>
+    </table>
+   
+</body>
+
+</html>
