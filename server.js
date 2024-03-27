@@ -106,11 +106,13 @@ app.get('/kukuCube',kukuCube)
 let tictactoe = require("./controller/tic_tac_toe/tic_tac_toe_controller.js")
 app.get('/tictactoe',tictactoe)
 
-//4th Exercise
+// 4th Exercise
+let sorting = require("./controller/sorting/sorting_controller.js")
+app.get('/sorting',sorting)
 
-// try{
 
-// }
+
+
 // catch(err)
 // {
 //     console.log("Something went wrong in Cucu Cube")
