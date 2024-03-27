@@ -1,0 +1,109 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Result</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="css/style.css" rel="stylesheet" type="text/css">
+    <style>
+    .paqgingComponent > a {
+          
+            font-size: 20px;
+            display: flex;
+            font-size: 60px;
+        }
+
+        .pagingComponent {
+            display: flex;
+            margin-left: 600px;
+            font-size: 60px;
+        }
+        .mytable
+        {
+            width: 80%;
+            margin: 0 auto;
+        }
+        .header
+        {
+            background-color:rgb(175, 206, 49) ;
+        }
+        .myheader2
+        {
+            background-color: aqua;
+        }
+        .title
+        {
+            text-align: center;
+        }
+        
+    </style>
+</head>
+<body>
+    <h1>Jaiswal Ritesh : 24DEV068</h1>
+    <div class="pagingComponent">
+
+        <% if(currpage>1){ %>
+        <a class="fa-solid fa-angles-left"  href="/result?p=1"></a><%}%>
+            
+        <% if(currpage>1){ %>
+                <a class="fa-solid fa-angle-left" class="disableleft"  href="/result?p=<%= Number(currpage)-1   %>"></a><%}%>
+            
+
+
+                    <div>
+                        <%=currpage %>
+                        
+                    </div>
+
+
+                    <% if(currpage<10){ %>
+                        <a class="fa-solid fa-angle-right" class="displayRight" href="/result?p=<%= Number(currpage)+1  %>"></a><%}%>
+            
+             
+                  
+                        <% if(currpage<10){ %>
+                                <a class="fa-solid fa-angles-right" href="/result?p=<%= 10  %>"></a><%}%>
+</div>
+<h3 class="title">Student Result</h3>
+<table class="mytable">
+    <tr class="header"> 
+        <th rowspan="2">Student id</th>
+        <th rowspan="2">Student Name</th>
+        <th colspan="2">Terminal</th>
+        <th colspan="2">Prelium</th>
+        <th colspan="2">Final</th>
+        <th rowspan="2">Total Marks</th>
+        <th rowspan="2">Button</th>
+        
+
+    </tr>
+    <tr class="myheader2">
+        <th>Practical</th>
+        <th>Theory</th>
+        <th>Practical</th>
+        <th>Theory</th>
+        <th>Practical</th>
+        <th>Theory</th>
+    </tr>
+    <% for(let i=0;i<data.length;i++) {%>
+        <tr>
+        <td><%= data[i].student_id %></td>
+        
+        <td><%= data[i].firstname %></td>
+        <td><%= data[i].primarly_practical_marks %></td>
+        <td><%= data[i].primarly_theory_marks %></td>
+        <td><%= data[i].terminal_practical_marks %></td>
+        <td><%= data[i].terminal_theory_marks %></td>
+        <td><%= data[i].final_practical_marks %></td>
+        <td><%= data[i].final_theory_marks %></td>
+        <td><%=  data[i].primarly_practical_marks+data[i].primarly_theory_marks+data[i].terminal_practical_marks + data[i].terminal_theory_marks+
+           data[i].final_practical_marks+ data[i].final_theory_marks %></td>
+           <td><a href="/resultDetails?id=<%= data[i].student_id %>">click here</a>  </td>
+           
+        </tr>
+       
+        <% } %>
+       
+</table>
+</body>
+</html>

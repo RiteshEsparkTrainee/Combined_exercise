@@ -1,0 +1,66 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        th{
+            background-color: brown;
+        }
+        td{
+            background-color: beige;
+        }
+        h2{
+            
+        text-align: center;
+        }
+        table
+        {
+            margin: 0 auto;
+        }
+    </style>
+</head>
+<body>
+    <h1>Ritesh Jaiswal : 24DEV068</h1>
+    <br>
+    <h2>Result Details</h2>
+    Student Name : 
+    <%= data[0].firstname  %>
+    <table>
+        <tr>
+            <th rowspan="2"> Subject Name</th>
+            <th colspan="2"> Terminal </th>
+            <th colspan="2">Prelium </th>
+            <th colspan="2">Final</th>
+            <th rowspan="2">Total Marks</th>
+        </tr>
+        <tr>
+            <th>Theory Marks</th>
+            <TH>Practical marks</TH>
+            <th>Theory Marks</th>
+            <TH>Practical marks</TH>
+            <th>Theory Marks</th>
+            <TH>Practical marks</TH>
+
+        </tr>
+        
+            <% for(let i=0;i<data.length;i+=3) { %>
+                <tr>
+                <td>
+                    <%= data[i].subject_name  %> </td>
+
+                    <% for(let j=i;j<i+3;j++) {%>
+                        <td><%= data[j].obtained_theory_marks  %></td>
+                        <td><%= data[j].obtained_practical_marks  %></td>
+                        <% } %>
+
+                    <td><%=  data[i].obtained_theory_marks+data[i].obtained_practical_marks+data[i+1].obtained_theory_marks
+                    +data[i+1].obtained_practical_marks+data[i+2].obtained_theory_marks+data[i+2].obtained_practical_marks %></td>
+            </tr>
+            <% } %>
+       
+    </table>
+    <br>
+    Attendance of Student is <%= atten[0].atten  %>
+</body>
+</html>

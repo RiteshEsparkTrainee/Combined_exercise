@@ -123,8 +123,13 @@ app.get('/listdatabase',pagination_orderBy)
 //7th task 
 let attendenceReport = require("./controller/attendence_report/attendence_report_controller.js")
 app.get('/report',attendenceReport)
-   
 
+//8th task
+let studentResult = require("./controller/result/result_controller.js")
+app.get('/result',studentResult)
+   
+let resultDetails = require("./controller/result/result_details_controller.js")
+app.get('/resultDetails',resultDetails)
 
 app.listen(PORT,()=>{
     console.log('server is listening at port ',PORT);
