@@ -1,0 +1,227 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercise-2</title>
+</head>
+<style>
+    tr,
+    td {
+        border: 1px solid rgb(44, 34, 187);
+        height: 100px;
+        width: 100px;
+    }
+
+    .position1 {
+        margin-bottom: 300px;
+    }
+
+    table {
+        border: 1px solid black;
+    }
+
+    .game_description {
+        text-align: center;
+    }
+
+    .flex-center {
+        display: flex;
+        align-items: center;
+        height: 350px;
+    }
+
+    table.mainTable {
+
+        margin: auto;
+    }
+
+    .position3 {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    #position4{
+        margin-bottom: 300px;
+        margin-left: 10px;
+       
+    }
+    #timerButton
+    {
+        font-size: 20px;
+        background-color: green;
+        border-radius: 8px;
+        color: white;
+    }
+</style>
+<h1>Name:-Ritesh Jaiswal</h1>
+<h1>Employee_Id:-24DEV068</h1>
+<h2>Exercise-2</h2>
+
+<body>
+    <h2 class="game_description">Kuku Kuku Cube</h2>
+    <h3 id="score">Your Score is :
+        <span id="userScore">0 </span>
+    </h3>
+    <div class="flex-center">
+        <script>var rowCount = 1, columnCount = 1, realRow, realColumn, cell, row </script>
+        <script>var userCount = 0</script>
+        <script>console.log(rowCount)</script>
+        <script>console.log(columnCount)</script>
+
+        <button id="timerButton" class="position1" onclick="start()">Click here to start the Game !!</button>
+        
+        <div id="countdown" class="position1"> </div>
+        <div id ="position4">  Seconds Left</div>
+        
+        
+        <table class="mainTable" id="myTable">
+
+            <tr id="row1">
+
+                <td style="opacity: 0.5;background-color: red;"></td>
+                <td style="background-color: red;"></td>
+            </tr>
+            <tr>
+                <td style="background-color: red;"></td>
+                <td style="background-color: red;"></td>
+            </tr>
+
+        </table>
+    </div>
+
+
+
+    <script>
+        const tbody = document.querySelector('#myTable tbody');
+        tbody.addEventListener('click', function (e) {
+            let table1 = document.getElementById('myTable');
+            console.log(table1)
+            cell = e.target.closest('td');
+            if (!cell) { return; } // Quit, not clicked on a cell
+            row = cell.parentElement;
+            console.log(cell.innerHTML, row.rowIndex, cell.cellIndex);
+            rowCount += 1;
+            columnCount += 1;
+            let var_name = e.target.style.opacity
+            if (var_name == "0.5") {
+                checkRightClick()
+                userCount += 1
+                document.getElementById("userScore").innerHTML = userCount
+            }
+            else {
+                if (userCount >= 1) {
+                    userCount -= 1;
+                }
+
+                document.getElementById("userScore").innerHTML = userCount
+            }
+            console.log("the real score:-" + userCount)
+
+
+        });
+        function add_cells() {
+            //add column
+            var row = document.querySelectorAll("tr")
+            for (i = 0; i < row.length; i++) {
+
+                row[i].insertCell()
+
+            }
+
+            //add rows
+
+            var table2 = document.getElementById('myTable');
+
+            var x = document.getElementById("row1").cells.length
+            var row = table2.insertRow()
+
+            for (i = 0; i < x; i++) {
+
+                row.insertCell()
+            }
+
+            console.log("My Random realRow" + realRow)
+            console.log("My Real clICK ON Row" + row.rowIndex + cell.cellIndex)
+
+        }
+
+
+        function RandomColor() {
+            var myArray = [];
+            for (let i = 0; i < 20; i++) {
+                const randomColor = "#" + Math.floor(Math.random() * 16777215).toString(16);
+                myArray.push(randomColor)
+            }
+            var rand = myArray[Math.floor(Math.random() * myArray.length)]
+
+            var columns = document.querySelectorAll("td")
+            for (i = 0; i < columns.length; i++) {
+                columns[i].style.backgroundColor = rand
+                columns[i].style.opacity = 1
+            }
+
+
+
+        }
+
+
+        function checkRightClick() {
+            let table1 = document.getElementById('myTable');
+
+            add_cells()
+            RandomColor()
+            console.log(rowCount)
+            console.log(columnCount)
+            realRow = Math.floor(Math.random() * rowCount)
+            realColumn = Math.floor(Math.random() * columnCount)
+            console.log("Random Row " + Math.floor(Math.random() * rowCount))
+            console.log("Random Column " + Math.floor(Math.random() * columnCount))
+            var ele = table1.children[0].children[realRow].children[realColumn]
+            ele.style.opacity = "0.5"
+
+            console.log(ele)
+        }
+
+
+
+        var timer;
+        var timeLeft = 10;
+
+        function gameOver() {
+            clearInterval(timer);
+           
+        }
+        function updateTimer() {
+            timeLeft = timeLeft - 1;
+            if (timeLeft >= 0)
+                document.getElementById('countdown').innerHTML = timeLeft;
+            else {
+                gameOver();
+                document.getElementById('countdown').innerHTML = "Times Up!!!";
+            document.getElementById('myTable').style.display = 'none'
+            document.getElementById('timerButton').style.display='none'
+            document.getElementById('position4').style.display='none'
+            
+           
+
+            }
+        }
+        function start() {
+            
+            timer = setInterval(updateTimer, 1000);
+
+
+            updateTimer();
+            document.getElementById('timerButton').style.display='none'
+            document.getElementById('position4').style.display='block'
+            document.getElementById('myTable').style.display = 'block'
+        }
+
+
+        document.getElementById('position4').style.display='none'
+        document.getElementById('myTable').style.display = 'none'
+    </script>
+</body>
+
+</html>

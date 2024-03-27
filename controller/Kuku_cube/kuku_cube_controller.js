@@ -15,5 +15,5 @@ catch(err)
     console.log("Something Went wrong in KuKu Cube")
 }
 
-module.exports = dynamic_table
+module.exports = KukuCube
 

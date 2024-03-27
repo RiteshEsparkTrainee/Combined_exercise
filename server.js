@@ -98,8 +98,15 @@ app.post('/logSave',logsave)
 app.get('/Dashboard/dynamicTable',dynamic_table)
 
 
-//2nd Exercise 
+// 2nd Exercise 
+let kukuCube = require("./controller/Kuku_cube/kuku_cube_controller.js")
+app.get('/kukuCube',kukuCube)
 
+//3rd Exercise 
+let tictactoe = require("./controller/tic_tac_toe/tic_tac_toe_controller.js")
+app.get('/tictactoe',tictactoe)
+
+//4th Exercise
 
 // try{
 

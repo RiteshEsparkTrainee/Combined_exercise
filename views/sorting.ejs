@@ -1,0 +1,58 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bubble sort</title>
+</head>
+<h1>Name:-Ritesh Jaiswal</h1>
+<h1>Employee_Id:-24DEV068</h1>
+<h2>Exercise-4</h2><br><br><h3 id="topic_name">Bubble Sort</h3>
+<body>
+    <h3>Enter the Elements you want to sort...</h3>
+    <input type="text" id="userInput" placeholder="8,78,989,12" >
+    <button onclick = "textSplit()">Let's Sort</button>
+    <h3>After sorting..</h3>
+    <h3 id="result"></h3>
+</body>
+<script>
+    function textSplit()
+    {
+    let text=document.getElementById("userInput").value
+    const myArray = text.split(",");
+    console.log(myArray)
+    let numberArray = [];
+    for (let i = 0; i < myArray.length; i++)
+ 
+    // Instead of parseInt(), Number()
+    // can also be used
+    numberArray.push(parseInt(myArray[i]));
+    bubble_sort1(numberArray)
+    
+    }
+
+    function bubble_sort1(myArray){
+        var isSwapped=false;
+        for(let i=0;i<myArray.length;i++)
+        {
+            for(let j=0;j<myArray.length-i-1;j++)
+            {
+                if(myArray[j]>myArray[j+1])
+                {
+                    var temp = myArray[j]
+                    myArray[j] = myArray[j + 1];
+                    myArray[j + 1] = temp;
+                    isSwapped=true;
+                }
+            }
+            if(!isSwapped)
+                break;
+        }
+
+        document.getElementById("result").innerHTML=myArray;
+        // for(let i=0;i<myArray.length;i++)
+        // {
+        //     console.log(myArray[i])
+        // }
+    }
+</script>
+</html>
