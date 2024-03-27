@@ -7,7 +7,7 @@
         body
         {         
            
-            background-image: url("register_bg2.png");
+            background-image: url("/register_bg2.png");
             background-size: cover;
 
 
@@ -146,7 +146,7 @@
         <h2>Jaiswal Ritesh : 24DEV068</h2>
         <h2 class="heading">Register User</h2>
         <div class="register_image">
-            <img src="welcome.png" height="400px" width="400px">
+            <img src="/welcome.png" height="400px" width="400px">
         </div>
         
         <div class="myform">
@@ -204,8 +204,8 @@
                         <input type="text" id ="password1" name="password1" class="required"><br>
                         <span class="error" id="error-password1"></span>
                         <td>
-                            <img src="hide_pass.png" id="showPassword1" onclick="showPass()">
-                            <img src="show_password.jpeg" hidden id="hidePassword1" onclick="hidePass()">
+                            <img src="/hide_pass.png" id="showPassword1" onclick="showPass()">
+                            <img src="/show_password.jpeg" hidden id="hidePassword1" onclick="hidePass()">
                         </td>
                         
                       <br>
@@ -221,19 +221,20 @@
                         <span class="error" id="error-password2"></span>
                     </td>
                     <td>
-                        <img src="hide_pass.png" id="showPassword2" onclick="showPass2()">
-                        <img src="show_password.jpeg" hidden id="hidePassword2" onclick="hidePass2()">
+                        <img src="/hide_pass.png" id="showPassword2" onclick="showPass2()">
+                        <img src="/show_password.jpeg" hidden id="hidePassword2" onclick="hidePass2()">
                         
                     </td>
                 </tr>
               
         </table>
         <div class="already_account">
-            <span >Already have an account?</span><a href="/login">sign-in</a>
+            <span >Already have an account?</span><a href="/Dashboard/login">sign-in</a>
             
         </div>
         <div class="forgetPassword">
-            <span id="forget_password">Forget Password?</span><a href="/forgetPass">Click here</a>
+            <span id="forget_password">Forget Password?</span>
+           
         </div>
         
         <input type="submit" value="Register" id="submitbtn">
