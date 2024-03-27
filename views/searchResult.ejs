@@ -1,0 +1,148 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>searchsearch</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="css/style.css" rel="stylesheet" type="text/css">
+    <style>
+   
+    .submit
+        {
+            background-color: burlywood;
+            font-weight: bold
+        }
+    .paqgingComponent > a {
+          
+            font-size: 20px;
+            display: flex;
+            font-size: 60px;
+        }
+         #myform
+         {
+            margin-top: 15px;
+         }
+
+        .pagingComponent {
+            display: flex;
+            margin-left: 600px;
+            font-size: 60px;
+        }
+        .mytable
+        {
+            width: 80%;
+            margin: 0 auto;
+            border: 1px solid black;
+        }
+        td{
+            text-align: center;
+            border: 2px solid black;
+        }
+        th{
+            border: 1px solid black;
+        }
+        
+        .header
+        {
+            background-color:rgb(175, 206, 49) ;
+        }
+        .myheader2
+        {
+            background-color: aqua;
+        }
+        .title
+        {
+            text-align: center;
+        }
+      
+        
+    </style>
+</head>
+<body>
+    <h1>Jaiswal Ritesh : 24DEV068</h1>
+    
+    <form action="/search">
+        <input type="text" placeholder="enter user ID" name="userID" tabindex="0">
+        <input type="submit" value="Go" tabindex="1" class="submit">
+    </form>
+    <input type="button" onclick="myfunc()" value="show_More" class="submit">
+
+    <form action="/search" id="myform" hidden>
+        <input type="text" placeholder="enter firstname" name="firstname" tabindex="2">
+        <input type="text" placeholder="enter lastname" name="lastname" tabindex="3">
+        <input type="text" placeholder="city" name="city" tabindex="4">
+
+        <select name="option" id="option" tabindex="5">
+            <option value="and">AND</option> 
+            <option value="or">OR</option>
+            </select>
+        <input class="submit" type="submit" tabindex="6" value="Go">
+    </form>
+
+    <div class="pagingComponent">
+
+        <% if(currpage>1){ %>
+        <a class="fa-solid fa-angles-left"  href="/search?p=1&firstname=<%=firstname %>&lastname=<%= lastname %>&city=<%= city %>&option=<%= option  %>"></a><%}%>
+            
+        <% if(currpage>1){ %>
+                <a class="fa-solid fa-angle-left" class="disableleft"  href="/search?p=<%= Number(currpage)-1   %>&firstname=<%= firstname %>&lastname=<%= lastname %>&city=<%= city %>&option=<%= option  %>"></a><%}%>
+                    <div>
+                        <%=currpage %>
+                        
+                    </div>
+
+
+                    <% if(currpage<lastpage){ %>
+                        <a class="fa-solid fa-angle-right" class="displayRight" href="/search?p=<%=Number(currpage)+1 %>&firstname=<%= firstname %>&lastname=<%= lastname %>&city=<%= city %>&option=<%= option  %>"></a><%}%>
+            
+             
+                  
+                        <% if(currpage<lastpage){ %>
+                                <a class="fa-solid fa-angles-right" href="/search?p=<%=lastpage %>&firstname=<%=firstname %>&lastname=<%= lastname %>&city=<%= city %>&option=<%= option  %>"></a><%}%>
+</div>
+
+
+<%if(message){%>
+    <h3><%= message  %></h3>
+    
+    <% } %>
+<% if(message==false) {%>
+    <h2 class="title">Search Grid</h2>
+ 
+    <table class="mytable">
+        <tr>
+            <th>Student ID</th>
+            <th> Firstname </th>
+            <th>Lastname </th>
+            <th>Email</th>
+            <th>City</th>
+          
+        </tr>
+        
+        
+            <% for(let i=0;i<data.length;i++) { %>
+                <tr>
+                <td>
+                   <%=data[i].student_id  %> 
+
+                </td>
+                <td><%= data[i].firstname %></td>
+                <td><%= data[i].lastname %></td>
+                <td><%=  data[i].email%></td>
+                <td><%=  data[i].city%></td>
+              
+
+            </tr>
+            <% } %>
+       
+    </table>
+<% } %>
+<script>
+    function myfunc()
+    {
+        document.getElementById('myform').style.display='block';
+    }
+</script>
+
+</body>
+</html>

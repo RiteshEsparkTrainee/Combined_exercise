@@ -131,6 +131,10 @@ app.get('/result',studentResult)
 let resultDetails = require("./controller/result/result_details_controller.js")
 app.get('/resultDetails',resultDetails)
 
+ //9th task 
+ let search = require("./controller/search/search_controller.js")
+ app.get('/search',search)
+
 app.listen(PORT,()=>{
     console.log('server is listening at port ',PORT);
 })
