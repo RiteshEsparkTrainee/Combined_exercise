@@ -1,0 +1,315 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ALL JAVASCRIPT EVENTS</title>
+    <style>
+        table,
+        th,
+        td {
+            border: 1px solid black;
+        }
+
+        #myDIV {
+  border: 1px solid black;
+  width: 200px;
+  height: 100px;
+  overflow: scroll;
+}
+    </style>
+</head>
+
+<body onload="checkCookies()" ; onbeforeunload="return myFunction()" onhashchange="myFunction4()"
+ononline="onFunction()" onoffline="offFunction()" >
+    <table>
+        <tr>
+            <td>
+                <label for="demo">onclick</label>
+            </td>
+            <td>
+                <button id="demo" onclick="onClickFunc()">Click me</button>
+            </td>
+
+            <td>
+                <label for="demo2">onload</label>
+            </td>
+            <td>
+
+                <p id="demo2"></p>
+
+            </td>
+
+            <td>
+                <label for="fname">onblur</label>
+            </td>
+
+            <td>
+                <input type="text" id="fname" onblur="onUpperCase()">
+            </td>
+
+            <td>
+                <label for="onDbClick">ondbClick</label>
+            </td>
+            <td>
+                <button id="onDbClick" ondblclick="onDoubleClick()">Click me twice</button>
+            </td>
+
+        </tr>
+
+        <tr>
+            <td>
+                <label for="onchange">onChange</label>
+            </td>
+            <td>
+                <input type="text" id="onchange" onchange="upperCase()" value="hello">
+            </td>
+            <td>
+                <label for="onfocus1">onfocus</label>
+            </td>
+            <td>
+                <input type="text"  id="onfocus1"onfocus="onfocus1()" >
+            </td>
+            <td>
+                <label for="onselect1">onselect</label>
+            </td>
+            <td>
+                <input type="text"  id="onselect1" onselect="onselect2()" value = "select me" >
+            </td>
+            <td>
+                <label for="onkeyDown">onkeydown</label>
+            </td>
+            <td>
+                <input type="text" onkeydown="keydown()">
+            </td>
+
+
+
+
+        </tr>
+        <tr>
+            <td>
+                <label for="onkeyUp">onkeyUp</label>
+            </td>
+            <td>
+                <input type="text" id="onkeyUp" onkeyup="onKeyUp1()">
+            </td>
+            <td>
+                <label for = "onmouseover">onmouseover & onmouseup</label>
+            </td>
+            <td>
+               <p><id="onmouseover" onmouseover="style.color='red'" onmouseout="style.color='black'">Mouse over </p>
+            </td>
+
+            <td><label for ="onmouseDown">onmousedown & onmouseup</label></td>
+            <td>
+                <p><id="onmouseDown" onmousedown="style.color='red'" onmouseup="style.color='grey'">Mouse over </p>
+            </td>
+            <td>onbeforeUnload</td>
+            <td>
+                <a href="https://www.w3schools.com">Click here to go to w3schools.com</a>
+            </td>
+
+            </tr>
+           <tr>
+            <td>
+                <label for ="onError">onError</label></td>
+            </td>
+            <td>
+                <img src="image.gif" onerror="u()">
+                <p id="i3"></p>
+            </td>
+
+            <td> <label for ="onhashchanged">onhashchanged</label></td>
+
+            <td><button id="demo6" onclick="changePart()">Try it</button>
+                <td><label for="reset12">onReset</td>
+                <td><form onreset="myFunction()">
+                    Enter name: <input type="text">
+                    <input type="reset">
+                  </form></td>
+
+                
+                    <td><label for="onsubmit">onSubmit</td>
+                </td>
+                <td>
+                    <form  id="onsubmit12" onsubmit="onsub()">
+                        Enter name: <input type="text" name="fname">
+                        <input type="submit" value="Submit">
+                        <p id="21"></p>
+                      </form>
+                </td>
+                
+           </tr>
+
+           <tr>
+            <td><p>ondrag</p></td>
+            <td>
+                <p id ="drag12" draggable="true" ondrag="myFunction12(event)">Drag me!</p> 
+            </td>
+
+            <TD>ondragend</TD>
+            <TD> <p id="dragend12" draggable="true" ondragend="myFunction21(event)">Drag me!</p> </TD>
+
+            <td>onscroll</td>
+            <td><div id="myDIV" onscroll="myFunction33()">In my younger and more vulnerable years my father gave me some advice that I've been turning over in my mind ever since.
+                <br><br>
+                'Whenever you feel like criticizing anyone,' he told me, just remember that all the people in this world haven't had the advantages that you've had.'</div></td>
+
+                <td>oncopy</td>
+                <td>
+                    <input id="hello" type="text" oncopy="myFunction77()" value="Try to copy this text">
+                    <p id="demo89"></p>
+                </td>
+           </tr>
+
+           <tr>
+
+            <td>oncut</td>
+            <td><input type="text" oncut="myFunction21()" value="Try to cut this text">
+
+                <p id="demo21"></p></td>
+
+            <td>onpaste</td>
+            
+                <td><input type="text" onpaste="myFunction22()" value="Try to paste this text">
+
+                    <p id="demo22"></p></td>
+
+            </td>
+            <td>
+                    ontoggle
+            </td>
+            <td>
+                <details ontoggle="myFunction23()">
+                    <summary>Copyright 1999-2014.</summary>
+                    <p> - by Refsnes Data. All Rights Reserved.</p>
+                    <p>All content and graphics on this web site are the property of the company Refsnes Data.</p>
+                    </details>
+            </td>
+
+
+           <td>oninvalid</td>
+           <td>
+            <form >
+            <input type="text" oninvalid="alert('You must fill out the form!');" name="fname" required>
+                <input type="submit" value="Submit">
+              </form>
+              
+           </td>
+
+           </tr>
+
+
+
+
+
+
+
+
+
+
+    </table>
+    <script>
+        function onClickFunc() {
+            document.getElementById("demo").innerHTML = "Hello World";
+        }
+        function checkCookies() {
+            var text = "";
+            if (navigator.cookieEnabled == true) {
+                text = "Cookies are enabled.";
+            } else {
+                text = "Cookies are not enabled.";
+            }
+            document.getElementById("demo2").innerHTML = text;
+        }
+        function onUpperCase() {
+            const x = document.getElementById("fname");
+            x.value = x.value.toUpperCase();
+        }
+        function onDoubleClick() {
+            document.getElementById("onDbClick").innerHTML = "Hello Dosto";
+        }
+        function upperCase() {
+            const x = document.getElementById("onchange");
+            x.value = x.value.toUpperCase();
+        }
+        function onfocus1() {
+    
+  document.getElementById("onfocus1").style.backgroundColor = "red";
+}
+function onselect2() {
+  alert('Some Text is selected')
+}
+function keydown() {
+  alert("You pressed a key inside the input field");
+}
+function onKeyUp1() {
+  const x = document.getElementById("onkeyUp");
+  x.value = x.value.toUpperCase();
+}
+
+function myFunction() {
+  return "Write something clever here...";
+}
+
+function u()
+{
+    // alert("Not displayed")
+    document.getElementById("i3").innerHTML="Image does not exists"
+}
+function changePart() {
+  location.hash = "part5";
+  let x = "The anchor part is now: " + location.hash;
+  document.getElementById("demo6").innerHTML = x;
+}draggable="true"
+function onFunction() {
+  alert ("Your browser is working online.");
+}
+
+function offFunction() {
+  alert ("Your browser is working offline.");
+}
+
+function onsub()
+{
+    document.getElementById("21").innerHTML="submitted";
+}
+
+function myFunction12(event) {
+  document.getElementById("drag12").innerHTML = "The element is being dragged";
+}
+function myFunction21(event) {
+  document.getElementById("dragend12").innerHTML = "Finished dragging the  element.";
+}
+function myFunction33() {
+  document.getElementById("myDIV").style.color = "red";
+}
+
+function drop(event)
+{
+    event.preventDefault();
+  let data = event.dataTransfer.getData("Text");
+  event.target.appendChild(document.getElementById(data));
+  document.getElementById("droptarget").innerHTML = "The p element was dropped";
+}
+function myFunction77() {
+  document.getElementById("demo89").innerHTML = "You copied text!"
+}
+
+function myFunction21() {
+  document.getElementById("demo21").innerHTML = "You cut text!";
+}
+function myFunction22() {
+  document.getElementById("demo22").innerHTML = "You paste text!";
+}
+function myFunction23() {
+  alert("The ontoggle event occured");
+}
+
+
+
+    </script>
+</body>
+
+</html>

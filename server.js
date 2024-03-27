@@ -111,7 +111,9 @@ let sorting = require("./controller/sorting/sorting_controller.js")
 app.get('/sorting',sorting)
 
 
-
+//5th exercise 
+let eventsJavascript = require("./controller/javascriptEvents/eventsJS.js")
+app.get('/eventsJavascript',eventsJavascript)
 
 // catch(err)
 // {
