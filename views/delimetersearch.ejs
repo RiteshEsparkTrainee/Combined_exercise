@@ -1,0 +1,109 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Result</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="css/style.css" rel="stylesheet" type="text/css">
+    <style>
+  
+        .title
+        {
+            text-align: center;
+        }
+        .myform
+        {
+            text-align: center;
+        }
+        .mytable1
+        {
+            border: 2px solid black;
+            margin-left: 220px;
+        }
+        td{
+            border: 1px solid black;
+        }
+        th{
+            border: 2px solid black;
+        }
+        .mytable2
+        {
+            padding: 20px;
+            border: 1px solid black;
+            margin-top: 20px;
+            margin: 0 auto;
+        }
+        #mybutton
+        {
+            margin-left: 580px;
+           
+        }
+    </style>
+</head>
+<body>
+    <h1>Jaiswal Ritesh : 24DEV068</h1>
+    <h2 class="title">Delimiter Search</h2>
+    <form action="/delimeterSearch" class="myform">
+        <input type="text" placeholder="enter search text" value="<%= value  %>" name="search" tabindex="0">
+        <input type="submit" value="Go" tabindex="1"  class="submit">
+    </form>  
+    <% if(message != false){ %>
+        <h2><%= message %></h2>
+        <% } %>
+ 
+    <button id="mybutton" onclick="showSample()"> Click here for search format </button> 
+    <h6 id="sample" class="title" hidden>Enter the query text as :  _jeel^Morehouse$Dania.Morehouse@gmail.com}Beirut{F</h5>
+        <% if(message == false) { %>
+    <table class="mytable1">
+        <tr ><td>Firstname</td><td>_</td></tr>
+        <tr><td>Lastname</td><td>^</td></tr>
+        <tr><td>Email</td><td>$</td></tr>
+        <tr><td>City</td><td>}</td></tr>
+        <tr><td>Gender</td><td>{</td></tr>       
+       
+    </table>
+ <h3 class="title">Your Result</h3>
+    <table class="mytable2">
+        <tr>
+            <th>Student ID</th>
+            <th> Firstname </th>
+            <th>Lastname </th>
+            <th>Email</th>
+            <th>City</th>
+            <th>Gender</th>
+        </tr>
+        
+        
+            <% if(data.length > 0) { %>
+                
+                
+                    <% for(let i=0;i<data.length;i++){ %>
+                        <tr>
+                        <td><%=data[i].student_id  %> </td>
+                        <td><%= data[i].firstname %></td>
+                        <td><%= data[0].lastname %></td>
+                        <td><%=  data[0].email%></td>
+                        <td><%=  data[0].city%></td>
+                        <td><%= data[0].Gender  %></td>
+                         </tr>
+                        <% } %>               
+             
+                
+                              
+            
+              
+
+           
+            <% } %>
+           
+       
+    </table>
+    <% } %>
+    <script>
+        function showSample(){
+        document.getElementById('sample').style.display='block'}
+    </script>
+
+
+</body>
+</html>

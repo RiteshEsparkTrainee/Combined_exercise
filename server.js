@@ -135,6 +135,10 @@ app.get('/resultDetails',resultDetails)
  let search = require("./controller/search/search_controller.js")
  app.get('/search',search)
 
+ //10th task
+ let delimeterSearch = require("./controller/delimeter_search/delimeterSearchController.js")
+ app.get('/delimeterSearch',delimeterSearch)
+
 app.listen(PORT,()=>{
     console.log('server is listening at port ',PORT);
 })
