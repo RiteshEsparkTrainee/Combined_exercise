@@ -67,12 +67,16 @@ h3{
     text-align: center;
     color: #04AA6D;
 }
+.step > p{
+    text-align: center;
+    margin-top: 6px;
+    font-weight: bold;
+    font-size: 11px;
+}
+
 .step {
   height: 25px;
-  width: 150px;
-  margin-top: 10px;
-
-  text-align: center;
+  width: 150px;   
 
   background-color: rgb(26, 225, 26);
   border: none;  
@@ -105,19 +109,19 @@ h3{
     <form
      method="post" autocomplete="on" id="Form1">
      <div class="stepIndicator">
-        <div class="step">Basic Details</div>
-        <div class="step">education Details</div>
-        <span class="step">Work Experience</span>
-        <span class="step">Languages Known</span>
-        <span class="step">Technologies You Know</span>
-        <span class="step">Reference</span>
-        <span class="step">Preference</span>
+        <div class="step"><p>Basic Details</p></div>
+        <div class="step"><p>education Details</p></div>
+        <span class="step"><p>Work Experience</p></span>
+        <span class="step"><p>Languages Known</p></span>
+        <span class="step"><p>Technologies You Know</p></span>
+        <span class="step"><p>Reference</p></span>
+        <span class="step"><p>Preference</p></span>
       </div>
         <div class="tab">
         <fieldset id="basic_details">
            
             <table>
-                <legend>Basic Details</legend>
+               
                 <tr>
                     <td>
                         
@@ -246,7 +250,7 @@ h3{
 
         <div class="tab">
             <fieldset>
-                <legend>Educational Details</legend>
+            
         
     
                 <input type="button" onclick="add_Rows()" value="+"></button>
@@ -291,7 +295,7 @@ h3{
         </div>
         <div class="tab">
             <fieldset>
-                <legend>Work Experience</legend>            
+              
               
           
                 <input type="button" onclick="experience_addRow()" value="+"></button>   
@@ -398,9 +402,7 @@ h3{
             </div>
             <div class="tab">
                 <fieldset>
-                    <legend>
-                        Technologies You Know
-                    </legend>
+                  
                     <div><span id="check_technology" class="error"></span></div>
             <div><span id="check_technology_level" class="error"></span></div>
             <input type="checkbox" id="php_checkbox" name="php_checkbox" value="PHP" <% technologiesKnownDetails.forEach(element=> { %>
@@ -481,7 +483,7 @@ h3{
         
         <div class="tab">
             <fieldset>
-                <legend>Reference Table</legend>
+             
         
                 <input type="button" onclick="addReferencerows()" value="+"></button>    
                    
@@ -519,7 +521,7 @@ h3{
         <div class="tab">
            
             <fieldset>
-                <legend>Preferance</legend>
+                
                 <table style="border: 5;">
                     <tr>
                         <td rowspan="3">

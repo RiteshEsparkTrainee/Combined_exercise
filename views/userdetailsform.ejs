@@ -1,0 +1,44 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="/style.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+    <h2>User Details</h2>
+    <center><a href="/form"><h3>Enter New User</h3></a> 
+    </center>
+    <table>
+    <tr>
+        <th>ID</th>
+        <th>FirstName</th>
+        <th>LastName</th>
+        <th>Email</th>
+        <th >Action</th>
+    </tr>
+   <form action="/detailsform" method="post">
+    <% for(let i=0 ; i< userdata.length;i++){ %>
+        <div>
+        <tr>
+            <td><%= userdata[i].id %></td>
+            <td><%= userdata[i].fname %></td>
+            <td><%= userdata[i].lname %></td>
+            <td><%= userdata[i].email %></td>
+            <td class="DetailsButton"><input type="submit" value="Details" name="<%= userdata[i].id  %>"></td>
+          
+
+            
+        </tr>
+        
+    <% } %>
+   </form>
+   
+    </table>
+
+    
+
+</body>
+
+</html>

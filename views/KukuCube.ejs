@@ -9,8 +9,8 @@
     tr,
     td {
         border: 1px solid rgb(44, 34, 187);
-        height: 100px;
-        width: 100px;
+        height: 30px;
+        width: 30px;
     }
 
     .position1 {
@@ -53,6 +53,7 @@
         border-radius: 8px;
         color: white;
     }
+  
 </style>
 <h1>Name:-Ritesh Jaiswal</h1>
 <h1>Employee_Id:-24DEV068</h1>
@@ -121,14 +122,7 @@
 
         });
         function add_cells() {
-            //add column
-            var row = document.querySelectorAll("tr")
-            for (i = 0; i < row.length; i++) {
-
-                row[i].insertCell()
-
-            }
-
+            
             //add rows
 
             var table2 = document.getElementById('myTable');
@@ -140,9 +134,15 @@
 
                 row.insertCell()
             }
+            //add column
+            var row = document.querySelectorAll("tr")
+            for (i = 0; i < row.length; i++) {
 
-            console.log("My Random realRow" + realRow)
-            console.log("My Real clICK ON Row" + row.rowIndex + cell.cellIndex)
+                row[i].insertCell()
+
+            }
+
+           
 
         }
 
@@ -166,13 +166,12 @@
         }
 
 
-        function checkRightClick() {
+        async function checkRightClick() {
             let table1 = document.getElementById('myTable');
 
-            add_cells()
+            await add_cells()
             RandomColor()
-            console.log(rowCount)
-            console.log(columnCount)
+            
             realRow = Math.floor(Math.random() * rowCount)
             realColumn = Math.floor(Math.random() * columnCount)
             console.log("Random Row " + Math.floor(Math.random() * rowCount))

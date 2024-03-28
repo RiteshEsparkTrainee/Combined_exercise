@@ -178,6 +178,8 @@ let paginationAjaxPostDetails = require("./controller/AJAX_pagination/postDetail
 app.get('/dashboard/postDetails/:id',middleware,paginationAjaxPostDetails)
 
 
+
+
 app.listen(PORT,()=>{
 console.log('server is listening at port ',PORT);
 })
