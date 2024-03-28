@@ -139,6 +139,13 @@ app.get('/resultDetails',resultDetails)
  let delimeterSearch = require("./controller/delimeter_search/delimeterSearchController.js")
  app.get('/delimeterSearch',delimeterSearch)
 
+ //11th task
+ let stateCity = require("./controller/states_city/state_city_controller.js")
+ app.get('/stateCity',stateCity)
+
+ let cities = require("./controller/states_city/cities_controller.js")
+ app.get('/api/cities',cities)
+
 app.listen(PORT,()=>{
     console.log('server is listening at port ',PORT);
 })

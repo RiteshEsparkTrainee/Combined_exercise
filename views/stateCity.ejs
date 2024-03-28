@@ -1,0 +1,63 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ajax Practice2</title>
+    <style>
+      #states{
+        margin-left: 380px;
+        
+      }
+      h2
+      {
+        text-align: center;
+      }
+      .maincontainer
+      {
+        max-width: 1080px;
+        margin: 0 auto;
+      }
+    </style>
+</head>
+<body>
+    <div class="maincontainer">
+   <h2>Jaiswal Ritesh : 24DEV068</h2>
+   <h2>AJAX State-City Selection</h2>
+   
+    <select id="states" >
+        <option value="" >--select-state--</option>
+    
+    <% for(let i=0 ;i <result.length;i++) {%>
+        <option  value="<%= result[i].city_state  %>"><%= result[i].city_state  %></option>
+        <% } %>
+    </select>
+
+    <select id="options">
+        <option value="">--select--</option>
+    </select>
+   
+    </div>
+    <script>
+        const stateDropdown = document.getElementById("states")
+        const optionDropdown= document.getElementById("options")
+
+        stateDropdown.addEventListener('change',function(){
+            const selectedstate=this.value;
+            fetch(`/api/cities?state=${selectedstate}`)
+            .then(response => response.json())
+            .then(data => {
+                optionDropdown.innerHTML=  '<option value=""> --select city--</option>'
+                data.forEach(city => {
+                    const option = document.createElement('option');
+                    option.value= city;
+                    option.textContent=city;
+                    optionDropdown.appendChild(option)
+                })
+            }).catch(error=> console.error("Error fetching cities",error))
+
+        })
+        
+    </script>
+
+</body>
+</html>
