@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <title>Convert date to America/New_York timezone in JavaScript</title>
+   <style>
+    h2{
+        text-align: center;
+    }
+    .container1
+    {
+        height: 250px;
+        width: 250px;
+    border: 1px solid black;
+        text-align: center;
+        margin-top: 50px;
+        text-align: center;
+        
+        
+        
+    }
+    #cityname 
+    {
+        font-weight: bold;
+        font-size: 20px;  
+        margin-left: 250px;  
+        color: green;
+    }
+    .maincontainer{
+        max-width: 1780px;
+        justify-content: center;
+        margin: 0 auto;
+    }
+    .container2{
+       
+        height: 250px;
+        width: 250px;
+        text-align: center;
+        margin-top: 50px;
+        border: 1px solid black;
+        text-align: center;
+        
+
+
+    }
+    #showtime
+    {
+        height: 45px;
+        width: 100px;
+        background-color: green;
+        color: white;
+        border: 1px solid black;
+        border-radius: 12px;
+    }
+    .selectZone
+    {
+        margin-left: 80px;
+    
+    }
+    #textcontent
+    {
+        font-weight: bold;
+        font-size: 20px;
+    }
+    .card 
+    {
+        width: 600px;
+        margin: 0 auto;
+        display: flex;
+        gap: 60px;
+        
+    }
+   </style>
+</head>
+<body>
+    <div class="maincontainer">
+    <h2>Jaiswal Ritesh : 24DEV068</h2>
+    <h2>TimeZone Convertor</h2>
+
+    <div class="selectZone">
+        
+        <span id = "textcontent">Select City :- </span>
+        
+    <select id="showtime" onchange="showTime()">  
+        <option value ="ASIA/KOLKATA">Ahmedabad</option>
+        <option value="America/New_York">America</option>   
+        <option value = "Europe/Paris">France</option>
+        <option value ="Asia/Colombo">Sri Lanka</option>
+        <option value ="Europe/Monaco">Monaco</option>
+        <option value = "Asia/Tomsk">Russia</option>
+        <option value="Europe/Busingen">Germany</option>
+
+    </select>
+    <span id = "cityname"></span>
+    </div>
+    <div class="card">
+    <div class="container1">
+        <h2>Local Time</h2>
+        <p id="input"></p>
+    </div>
+    <div class="container2">
+        <h2>Converted Time</h2>
+        <p id="output"></p>
+    </div>
+    </div>
+    </div>
+  
+  
+   <script>
+   
+     showTime()
+     function showTime()
+     {
+        setInterval(updateTime,1000);       
+     }
+     function updateTime()
+     {
+        let timeZone_obtained = document.getElementById("showtime").value;
+        document.getElementById("cityname").innerHTML=timeZone_obtained
+       
+        let date = new Date();
+       
+        document.getElementById("input").innerText = date;
+
+
+        let difftime = new Date().toLocaleString('en-US', {
+            timeZone: timeZone_obtained
+        })
+       
+
+          document.getElementById("output").innerHTML = difftime;
+     }      
+   </script>
+</body>
+</html>

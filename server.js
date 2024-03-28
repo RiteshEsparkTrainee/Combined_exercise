@@ -162,6 +162,10 @@ app.get('/resultDetails',resultDetails)
  let updateUser = require("./controller/AJAX_CRUD/update_user_controller.js")
  app.get('/update',updateUser)
 
+ //13th task 
+ let timeZoneConvertor = require("./controller/time_zone_converter/timeZoneConvertor_controller.js")
+ app.get('/timeZoneConvertor',timeZoneConvertor)
+
 
 
 app.listen(PORT,()=>{
