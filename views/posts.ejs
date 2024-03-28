@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Posts</title>
+</head>
+<style>
+    .table
+    {
+        border: 1px solid black;
+        border-collapse: collapse;
+    }
+    td{
+        border: 1px solid black;
+        text-align: center;
+    }
+    th{
+        border: 2px solid black
+    }
+    .pagination
+    {
+        text-align: center;
+        margin-bottom: 5px;
+    }
+    h2{
+        text-align: center;
+    }
+</style>
+<body>
+    <h1>Jaiswal Ritesh : 24DEV068</h1>
+    <h2>User all post</h2>
+    
+        <input type="text" id = "postSearch" name="postSearch" placeholder="Enter search text">
+        <input type="button" id="search_button" value="Search">
+  
+   
+   
+    <div class="pagination">
+        <button id="moveLeftInitial" onclick="moveLeftInitial()"><<</button>
+        <button id="moveLeft" onclick="moveLeft()"><</button>
+        <span id="currPage">1</span>
+        <button id="moveRight" onclick="moveRight()">></button>
+        <button id="moveRightLast" onclick="moveRightLast()">>></button>
+    </div>
+    <table id="postTable" class="table">
+        <thead>
+            <tr>
+                <th>Index</th>
+                <th>Title</th>
+                <th>Body</th>
+              
+            </tr>
+        </thead>
+        <tbody id="postBody">
+
+        </tbody>
+    </table>
+    <script>
+         var currentPage=1;
+         var lastPage=1;
+         var fetchBySearch=false;
+         const allPostApi = async(page,perPage)=>{
+            var resultData=[];
+            var result=[];
+
+            document.getElementById("search_button").
+            addEventListener("click",async()=>{
+               
+                //  try{
+                //     const result=await fetch(`https://jsonplaceholder.typicode.com/posts?q=${search_text}`);
+                //     const resultData= await result.json();
+                //     console.log("my result is ",resultData)
+                //  }
+                //  catch(error)
+                //  {
+                //     console.log("Error in fetching the data",error)
+                //  }
+                fetchBySearch=true;
+                allPostApi(currentPage,10)
+            })
+            // console.log(fetchBySearch)
+                try{
+                    if(fetchBySearch)
+                    {
+                         const search_text= document.getElementById("postSearch").value
+                         result=await fetch(`https://jsonplaceholder.typicode.com/posts?q=${search_text}`);
+                         resultData= await result.json();
+                        console.log("my result is ",resultData)
+                    // console.log(resultData)
+                    }
+                    else
+                    {
+                         result=await fetch('https://jsonplaceholder.typicode.com/posts');
+                        resultData= await result.json();
+                    }
+
+                    const postItems = document.getElementById("postBody")
+                    postItems.innerHTML="";
+
+                    let newArray=[];
+
+                    const basePage=(page-1)*perPage;
+
+                    if(perPage<1 || !resultData)
+                    {
+                        return []
+                    }
+                    else if(page < 0 || basePage >= resultData.length)
+                    {
+                        return []
+                    }
+                    else if(fetchBySearch)
+                    {
+                        try{
+                            
+                                newArray = resultData.slice(basePage,basePage+perPage)
+                                
+                            }
+                            catch(error)
+                            {
+                                console.log("Error in fetching the data",error)
+                            }
+                    }
+                    else
+                    {
+                        newArray = resultData.slice(basePage,basePage+perPage)
+                    }
+                    newArray.forEach(element=>{
+                        // const li = document.createElement('li')
+                        // postItems.appendChild(li)
+                        // li.innerHTML= JSON.stringify(element)
+                        var row = postItems.insertRow();
+                        let cell1=row.insertCell(0);
+                        let cell2=row.insertCell(1);
+                        let cell3=row.insertCell(2);
+                      
+
+                        cell1.textContent = element.id;
+                        cell2.textContent = element.title;
+                        cell3.textContent = element.body
+                     
+                    })
+
+                   lastPage = Math.ceil(resultData.length/perPage);
+                   updateButtonState();
+                    
+
+
+                }
+                catch(error)
+                {
+                    console.log("Error fetching or loading data ",error)
+                }
+         }
+         allPostApi(currentPage,10);
+
+         function moveLeftInitial()
+         {
+           
+
+            currentPage=1;
+            document.getElementById("currPage").innerHTML=currentPage;
+            allPostApi(currentPage,10);
+         }
+
+         function moveLeft()
+         {
+          
+            if(currentPage > 1)
+            currentPage--;
+            document.getElementById("currPage").innerHTML=currentPage;
+            allPostApi(currentPage,10)
+         }
+
+         function moveRight()
+         { 
+            console.log(currentPage)
+            if(currentPage < lastPage)
+            {
+            currentPage++;
+            console.log(currentPage)
+            document.getElementById("currPage").innerHTML=currentPage;
+            allPostApi(currentPage,10)
+            }
+         }
+
+         function moveRightLast()
+         {
+       
+            if(currentPage < lastPage)
+            {
+                currentPage=lastPage;
+                document.getElementById("currPage").innerHTML=currentPage;
+                allPostApi(currentPage,10)
+            }
+         }
+
+         function updateButtonState()
+         {
+            const moveLeftInitial = document.getElementById("moveLeftInitial")
+            const moveLeft = document.getElementById("moveLeft")
+            const moveRight = document.getElementById("moveRight")
+            const moveRightLast = document.getElementById("moveRightLast")
+
+            moveLeftInitial.disabled = currentPage === 1;
+            moveLeft.disabled = currentPage === 1;
+            moveRight.disabled = currentPage === lastPage;
+            moveRightLast.disabled = currentPage === lastPage;
+         }
+
+
+    </script>
+</body>
+</html>

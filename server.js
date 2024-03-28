@@ -166,6 +166,13 @@ app.get('/resultDetails',resultDetails)
  let timeZoneConvertor = require("./controller/time_zone_converter/timeZoneConvertor_controller.js")
  app.get('/timeZoneConvertor',timeZoneConvertor)
 
+ //14th task 
+ let paginationAjaxPost = require("./controller/AJAX_pagination/posts_user_controller.js")
+ app.get('/posts',paginationAjaxPost)
+
+ let paginationAjaxPostDetails = require("./controller/AJAX_pagination/postDetails_controller.js")
+ app.get('/postDetails/:id',paginationAjaxPostDetails)
+
 
 
 app.listen(PORT,()=>{
