@@ -24,7 +24,7 @@
         }
         table 
         {
-            max-width: 880px;
+            max-width: 500px;
             margin: 0 auto;
             border: 2px solid black;
         }
@@ -48,7 +48,7 @@
         }
          option
         {
-            font-size: 20px;
+            font-size: 10px;
         }
         h2
         {
@@ -62,7 +62,7 @@
     <div class="maincontainer">
 
     <h2>User Details</h2>
-    <form action="/listdatabase" method="get">
+    <form action="/Dashboard/listdatabase" method="get">
         <select name="order" id="order">
             <option value="asc">Ascending</option>
             <option value="desc">Descending</option>
@@ -76,18 +76,18 @@
     <div class="pagingComponent">
 
         <% if(currpage>1){ %>
-        <a class="fa-solid fa-angles-left"  href="/listdatabase?p=1&order=<%= order %>&column=<%= column %>"></a><%}%>
+        <a class="fa-solid fa-angles-left"  href="/Dashboard/listdatabase?p=1&order=<%= order %>&column=<%= column %>"></a><%}%>
             
         <% if(currpage>1){ %>
-                <a class="fa-solid fa-angle-left" class="disableleft" href="/listdatabase?p=<%= Number(currpage)-1 %>&order=<%= order %>&column=<%= column %>"></a><%}%>
+                <a class="fa-solid fa-angle-left" class="disableleft" href="/Dashboard/listdatabase?p=<%= Number(currpage)-1 %>&order=<%= order %>&column=<%= column %>"></a><%}%>
             
                     <div>
                         <%=currpage %>        </div>
                     <% if(currpage<10){ %>
-                        <a class="fa-solid fa-angle-right" class="displayRight"  href="/listdatabase?p=<%= Number(currpage)+1 %>&order=<%= order %>&column=<%= column %>"></a><%}%>
+                        <a class="fa-solid fa-angle-right" class="displayRight"  href="/Dashboard/listdatabase?p=<%= Number(currpage)+1 %>&order=<%= order %>&column=<%= column %>"></a><%}%>
                               
                         <% if(currpage<10){ %>
-                                <a class="fa-solid fa-angles-right"  href="/listdatabase?p=250&order=<%= order %>&column=<%= column %>"></a><%}%>
+                                <a class="fa-solid fa-angles-right"  href="/Dashboard/listdatabase?p=250&order=<%= order %>&column=<%= column %>"></a><%}%>
 </div>    
     <table>
         <tr>
@@ -162,7 +162,7 @@
 
     leftmostevent = () => {
         let page = 1;
-        window.location.href = `http://localhost:8002/listdatabase?p=${page}`
+        window.location.href = `http://localhost:8002/Dashboard/listdatabase?p=${page}`
     }
 
     leftEvent = () => {
@@ -172,7 +172,7 @@
             document.getElementsByClassName('disableleft').style.display = 'none'
         }
         else {
-            window.location.href = `http://localhost:8002/listdatabase?p=${param}`
+            window.location.href = `http://localhost:8002/Dashboard/listdatabase?p=${param}`
         }
     }
     moveRight1 = () => {
@@ -182,12 +182,12 @@
             document.getElementsByClassName('disableRight').style.display = 'none'
         }
         else {
-            window.location.href = `http://localhost:8002/listdatabase?p=${param}`
+            window.location.href = `http://localhost:8002/Dashboard/listdatabase?p=${param}`
         }
     }
     rightMostEvent = () => {
         let page = 250;
-        window.location.href = `http://localhost:8002/listdatabase?p=${page}`
+        window.location.href = `http://localhost:8002/Dashboard/listdatabase?p=${page}`
     }
 
 </script>

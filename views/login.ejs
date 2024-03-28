@@ -202,7 +202,7 @@
                     console.log(params)
                     const jobData= await new Response(params).text()
                     console.log(jobData)
-                    const response = await fetch("http://localhost:8083/logSave",{
+                    const response = await fetch("http://localhost:8083/Dashboard/logSave",{
                         method : "POST",
                        
                         body : params
@@ -229,7 +229,7 @@
                     let status = document.getElementById("invalidMessage").innerHTML
                     if(status == 'Login Successful')
                     {
-                        window.location.href="/login/save"
+                        window.location.href="/Dashboard/login/save"
                     }
                     
                    

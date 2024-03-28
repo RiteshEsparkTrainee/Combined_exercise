@@ -43,7 +43,7 @@
 
         stateDropdown.addEventListener('change',function(){
             const selectedstate=this.value;
-            fetch(`/api/cities?state=${selectedstate}`)
+            fetch(`/Dashboard/api/cities?state=${selectedstate}`)
             .then(response => response.json())
             .then(data => {
                 optionDropdown.innerHTML=  '<option value=""> --select city--</option>'

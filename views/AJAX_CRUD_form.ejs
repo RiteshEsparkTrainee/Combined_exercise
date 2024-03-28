@@ -688,7 +688,7 @@ h3{
                 const params= new URLSearchParams(details)    
                 const jobData= await new Response(params).text()          
                 
-                const response = await fetch("http://localhost:8083/save",{
+                const response = await fetch("http://localhost:8083/Dashboard/jobAppForm/save",{
                         method:"POST", 
                         headers :{
                             'Content-type': 'application/x-www-form-urlencoded'
@@ -710,7 +710,7 @@ h3{
 
                 const params = new URLSearchParams(details)
 
-                const response = await fetch("http://localhost:8083/updateDb",{
+                const response = await fetch("http://localhost:8083/Dashboard/jobAppForm/updateDb",{
                     method : "POST" ,
                     body : params
                 })

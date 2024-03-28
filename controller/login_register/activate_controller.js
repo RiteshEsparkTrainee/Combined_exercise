@@ -14,7 +14,7 @@ const md5 = require("md5")
 
 app.use(bodyParser.urlencoded({ extended: true }))
 
-
+const con = require('../../config/connection')
 
 
 var activate = async function(req,res)

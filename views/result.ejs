@@ -43,10 +43,10 @@
     <div class="pagingComponent">
 
         <% if(currpage>1){ %>
-        <a class="fa-solid fa-angles-left"  href="/result?p=1"></a><%}%>
+        <a class="fa-solid fa-angles-left"  href="/Dashboard/result?p=1"></a><%}%>
             
         <% if(currpage>1){ %>
-                <a class="fa-solid fa-angle-left" class="disableleft"  href="/result?p=<%= Number(currpage)-1   %>"></a><%}%>
+                <a class="fa-solid fa-angle-left" class="disableleft"  href="/Dashboard/result?p=<%= Number(currpage)-1   %>"></a><%}%>
             
 
 
@@ -57,12 +57,12 @@
 
 
                     <% if(currpage<10){ %>
-                        <a class="fa-solid fa-angle-right" class="displayRight" href="/result?p=<%= Number(currpage)+1  %>"></a><%}%>
+                        <a class="fa-solid fa-angle-right" class="displayRight" href="/Dashboard/result?p=<%= Number(currpage)+1  %>"></a><%}%>
             
              
                   
                         <% if(currpage<10){ %>
-                                <a class="fa-solid fa-angles-right" href="/result?p=<%= 10  %>"></a><%}%>
+                                <a class="fa-solid fa-angles-right" href="/Dashboard/result?p=<%= 10  %>"></a><%}%>
 </div>
 <h3 class="title">Student Result</h3>
 <table class="mytable">
@@ -98,7 +98,7 @@
         <td><%= data[i].final_theory_marks %></td>
         <td><%=  data[i].primarly_practical_marks+data[i].primarly_theory_marks+data[i].terminal_practical_marks + data[i].terminal_theory_marks+
            data[i].final_practical_marks+ data[i].final_theory_marks %></td>
-           <td><a href="/resultDetails?id=<%= data[i].student_id %>">click here</a>  </td>
+           <td><a href="/Dashboard/resultDetails?id=<%= data[i].student_id %>">click here</a>  </td>
            
         </tr>
        
