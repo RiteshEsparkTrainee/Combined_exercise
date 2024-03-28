@@ -62,7 +62,7 @@
     <div class="maincontainer">
 
     <h2>User Details</h2>
-    <form action="/Dashboard/listdatabase" method="get">
+    <form action="/dashboard/listdatabase" method="get">
         <select name="order" id="order">
             <option value="asc">Ascending</option>
             <option value="desc">Descending</option>
@@ -76,18 +76,18 @@
     <div class="pagingComponent">
 
         <% if(currpage>1){ %>
-        <a class="fa-solid fa-angles-left"  href="/Dashboard/listdatabase?p=1&order=<%= order %>&column=<%= column %>"></a><%}%>
+        <a class="fa-solid fa-angles-left"  href="/dashboard/listdatabase?p=1&order=<%= order %>&column=<%= column %>"></a><%}%>
             
         <% if(currpage>1){ %>
-                <a class="fa-solid fa-angle-left" class="disableleft" href="/Dashboard/listdatabase?p=<%= Number(currpage)-1 %>&order=<%= order %>&column=<%= column %>"></a><%}%>
+                <a class="fa-solid fa-angle-left" class="disableleft" href="/dashboard/listdatabase?p=<%= Number(currpage)-1 %>&order=<%= order %>&column=<%= column %>"></a><%}%>
             
                     <div>
                         <%=currpage %>        </div>
                     <% if(currpage<10){ %>
-                        <a class="fa-solid fa-angle-right" class="displayRight"  href="/Dashboard/listdatabase?p=<%= Number(currpage)+1 %>&order=<%= order %>&column=<%= column %>"></a><%}%>
+                        <a class="fa-solid fa-angle-right" class="displayRight"  href="/dashboard/listdatabase?p=<%= Number(currpage)+1 %>&order=<%= order %>&column=<%= column %>"></a><%}%>
                               
                         <% if(currpage<10){ %>
-                                <a class="fa-solid fa-angles-right"  href="/Dashboard/listdatabase?p=250&order=<%= order %>&column=<%= column %>"></a><%}%>
+                                <a class="fa-solid fa-angles-right"  href="/dashboard/listdatabase?p=250&order=<%= order %>&column=<%= column %>"></a><%}%>
 </div>    
     <table>
         <tr>
@@ -162,7 +162,7 @@
 
     leftmostevent = () => {
         let page = 1;
-        window.location.href = `http://localhost:8002/Dashboard/listdatabase?p=${page}`
+        window.location.href = `http://localhost:8002/dashboard/listdatabase?p=${page}`
     }
 
     leftEvent = () => {
@@ -172,7 +172,7 @@
             document.getElementsByClassName('disableleft').style.display = 'none'
         }
         else {
-            window.location.href = `http://localhost:8002/Dashboard/listdatabase?p=${param}`
+            window.location.href = `http://localhost:8002/dashboard/listdatabase?p=${param}`
         }
     }
     moveRight1 = () => {
@@ -182,12 +182,12 @@
             document.getElementsByClassName('disableRight').style.display = 'none'
         }
         else {
-            window.location.href = `http://localhost:8002/Dashboard/listdatabase?p=${param}`
+            window.location.href = `http://localhost:8002/dashboard/listdatabase?p=${param}`
         }
     }
     rightMostEvent = () => {
         let page = 250;
-        window.location.href = `http://localhost:8002/Dashboard/listdatabase?p=${page}`
+        window.location.href = `http://localhost:8002/dashboard/listdatabase?p=${page}`
     }
 
 </script>

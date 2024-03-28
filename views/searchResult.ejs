@@ -61,13 +61,13 @@
 <body>
     <h1>Jaiswal Ritesh : 24DEV068</h1>
     
-    <form action="/Dashboard/search">
+    <form action="/dashboard/search">
         <input type="text" placeholder="enter user ID" name="userID" tabindex="0">
         <input type="submit" value="Go" tabindex="1" class="submit">
     </form>
     <input type="button" onclick="myfunc()" value="show_More" class="submit">
 
-    <form action="/Dashboard/search" id="myform" hidden>
+    <form action="/dashboard/search" id="myform" hidden>
         <input type="text" placeholder="enter firstname" name="firstname" tabindex="2">
         <input type="text" placeholder="enter lastname" name="lastname" tabindex="3">
         <input type="text" placeholder="city" name="city" tabindex="4">
@@ -82,10 +82,10 @@
     <div class="pagingComponent">
 
         <% if(currpage>1){ %>
-        <a class="fa-solid fa-angles-left"  href="/Dashboard/search?p=1&firstname=<%=firstname %>&lastname=<%= lastname %>&city=<%= city %>&option=<%= option  %>"></a><%}%>
+        <a class="fa-solid fa-angles-left"  href="/dashboard/search?p=1&firstname=<%=firstname %>&lastname=<%= lastname %>&city=<%= city %>&option=<%= option  %>"></a><%}%>
             
         <% if(currpage>1){ %>
-                <a class="fa-solid fa-angle-left" class="disableleft"  href="/Dashboard/search?p=<%= Number(currpage)-1   %>&firstname=<%= firstname %>&lastname=<%= lastname %>&city=<%= city %>&option=<%= option  %>"></a><%}%>
+                <a class="fa-solid fa-angle-left" class="disableleft"  href="/dashboard/search?p=<%= Number(currpage)-1   %>&firstname=<%= firstname %>&lastname=<%= lastname %>&city=<%= city %>&option=<%= option  %>"></a><%}%>
                     <div>
                         <%=currpage %>
                         
@@ -93,12 +93,12 @@
 
 
                     <% if(currpage<lastpage){ %>
-                        <a class="fa-solid fa-angle-right" class="displayRight" href="/Dashboard/search?p=<%=Number(currpage)+1 %>&firstname=<%= firstname %>&lastname=<%= lastname %>&city=<%= city %>&option=<%= option  %>"></a><%}%>
+                        <a class="fa-solid fa-angle-right" class="displayRight" href="/dashboard/search?p=<%=Number(currpage)+1 %>&firstname=<%= firstname %>&lastname=<%= lastname %>&city=<%= city %>&option=<%= option  %>"></a><%}%>
             
              
                   
                         <% if(currpage<lastpage){ %>
-                                <a class="fa-solid fa-angles-right" href="/Dashboard/search?p=<%=lastpage %>&firstname=<%=firstname %>&lastname=<%= lastname %>&city=<%= city %>&option=<%= option  %>"></a><%}%>
+                                <a class="fa-solid fa-angles-right" href="/dashboard/search?p=<%=lastpage %>&firstname=<%=firstname %>&lastname=<%= lastname %>&city=<%= city %>&option=<%= option  %>"></a><%}%>
 </div>
 
 
