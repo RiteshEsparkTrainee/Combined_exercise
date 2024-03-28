@@ -146,6 +146,24 @@ app.get('/resultDetails',resultDetails)
  let cities = require("./controller/states_city/cities_controller.js")
  app.get('/api/cities',cities)
 
+ //12th task
+ let insert_user = require("./controller/AJAX_CRUD/insert_user_controller.js")
+ app.get('/insert',insert_user)
+
+ let update_db = require("./controller/AJAX_CRUD/update_db_controller.js")
+ app.post('/updateDb',update_db)
+
+ let insert_save = require("./controller/AJAX_CRUD/save_user_controller.js")
+ app.post('/save',insert_save)
+
+ let userlist = require("./controller/AJAX_CRUD/userList_controller.js")
+ app.get('/userlist',userlist)
+
+ let updateUser = require("./controller/AJAX_CRUD/update_user_controller.js")
+ app.get('/update',updateUser)
+
+
+
 app.listen(PORT,()=>{
     console.log('server is listening at port ',PORT);
 })

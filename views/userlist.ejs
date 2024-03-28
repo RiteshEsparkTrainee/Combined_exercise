@@ -1,0 +1,50 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UpdateList</title>
+    <style>
+        td{
+            text-align: center;
+            border: 1px solid black;
+
+        }
+        table
+        {
+            margin: 0 auto;
+            border: 2px solid black;
+        }
+        th
+        {
+            border :2px solid black;
+        }
+        h2
+{
+    text-align: center;
+}
+    </style>
+</head>
+<body>
+    <h2>Jaiswal Ritesh : 24DEV068</h2>
+    <h2>AJAX Employee Form</h2>
+    <table>
+        <tr>
+        <th>FirstName</th>
+        <th>Lastname</th>
+        <th>Phone No</th>
+        <th>Genger</th>
+        <th>Action</th>
+        </tr>
+        
+        <% for(let i=0;i<result.length;i++) {%>
+            <tr>
+                <td><%= result[i].FIRST_NAME  %></td>
+                <td><%= result[i].LAST_NAME  %></td>
+                <TD><%= result[i].PHONE_NO  %></TD>
+                <td><%= result[i].GENDER  %></td>
+                <td><a href="/update?id=<%=result[i].EMPLOYEE_ID  %>">Update here</a></td>
+            </tr>
+            <% } %>
+    </table>
+</body>
+</html>
