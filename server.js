@@ -1,4 +1,5 @@
 var express = require("express")
+
 var app = express()
 var bodyParser = require("body-parser")
 var path = require("path")
@@ -16,124 +17,22 @@ console.log(PORT);
 
 var middleware = require('./middleware.js')
 
-
-app.get('/forgetPass',function(req,res){
-res.render('forget_password')
-})
-app.post('/validate_username',async function(req,res){
-    console.log(req.body)
-    let query = `select * from users where email='${req.body.useremail}'`
-    let found=0;
-  function check_username(query)
-  {
-    return new Promise((resolve,reject)=>{
-      con.query (query,function(err,result){
-        if(err)
-        {
-          reject(err)
-        }
-        else
-        {
-          if(result.length > 0)
-          {
-            found=1;
-            resolve(result)
-          }
-          else
-          {
-            resolve('not found')
-          }
-        }
-      })
-    })
-  }
-  let validateUserNameQuery = await check_username(query)
-  console.log(validateUserNameQuery[0].user_key)
-  if(found==1)
-  {
-    res.send(validateUserNameQuery[0].email)
-  }
-  else
-  {
-    res.send('userName not Exist')
-  }
+let forget_password = require("./controller/forgetPassword/forgetPassword_controller.js")
+app.get('/dashboard/forgetPass',forget_password)
 
 
 
-   
+let forget_username = require("./controller/forgetPassword/validate_username.js")
+app.post('/dashboard/validate_username',forget_username)
 
-   
-})
-app.get('/validate_password_link',function(req,res){
-    console.log(req.query.username)
-    let username=req.query.username
-    function generateRandomString(length) {
-     const charset = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
-     let result = "";
-  
-     for (let i = 0; i < length; i++) {
-        const randomIndex = Math.floor(Math.random() * charset.length);
-        result += charset[randomIndex];
-     }
-  
-     return result;
-  }
+let validate_password_link = require("./controller/forgetPassword/validate_password_link.js")
+app.get('/dashboard/validate_password_link',validate_password_link)
 
-  let new_key = generateRandomString(12)
-  console.log(new_key)
-    res.render('validate_password_link',{username,new_key})
-   
-})
-app.get('/reset_password',async function(req,res){
-    let username = req.query.username;
-    let new_key=req.query.key
-    console.log(username)
-    console.log(new_key)
-    function reset_password_link(query)
-    {
-      return new Promise((resolve,reject)=>{
-        con.query (query,function(err,result){
-          if(err)
-          {
-            reject(err)
-          }
-          else
-          {
-           
-           resolve(result)
-          }
-        })
-      })
-    }
-    let query = `select time_stamp from users where email = '${username}'`
-    let created_time_result = await reset_password_link(query)
-    let created_time = created_time_result[0].time_stamp
-  
-    console.log(created_time)
-    let current_time = new Date()
-  
-    let diff = current_time-created_time
-    console.log(diff,"difference")
-    if(diff > 3000000000000000000000)
-    {
-      let message = 'Your link is expired'
-      res.render('reset_password',{message,username})
-      return;
-    }
-    return res.render('reset_password',{message : false,username})
-    
-  })
-  app.post('/forPassSave',function(req,res){
-  let password1 = req.body.password1
-  let username = req.body.username
-  console.log("username is",username);
+let reset_password = require("./controller/forgetPassword/reset_password.js")
+app.get('/dashboard/reset_password',reset_password)
 
-  let query = `select * from users where email = ${username}`
-
- 
-    
-
-  })
+let forsave = require("./controller/forgetPassword/forPassSave_controller.js")
+app.post('/dashboard/forPassSave',forsave)
 
 
 
