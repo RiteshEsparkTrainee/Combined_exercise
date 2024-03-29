@@ -69,7 +69,7 @@ var save_user= async function (req, res) {
   
     const { company_name, designation1, from, to } = req.body
     // console.log(company_name)
-    // console.log(designation)
+    console.log(designation1)
     // console.log(from)
     // console.log(to)
     let query1_2;

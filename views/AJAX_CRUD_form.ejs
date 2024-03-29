@@ -314,7 +314,7 @@ h3{
     
     
                                 <label class="label" for="designation1">Designation</label>
-                                <input type="text" id="designation1[]" name="designation1" class="expereience" value="<%= row.Designation  %>" >
+                                <input type="text" id="designation1" name="designation1[]" class="expereience" value="<%= row.Designation  %>" >
     
                                 <label class="label" for="from">From</label>
                                 <input type="text" id="from" name="from[]" class="expereience" value="<%= row._From  %>">
@@ -380,7 +380,7 @@ h3{
         
                         <input type="checkbox" id="gujarati_checkbox" name="gujarati_checkbox" value="Gujarati" <% languagesKnownDetails.forEach(element=> { %>
                             <% if(element.Languages_known=="Gujarati") { %>checked<% } %>
-                   <%  }) %>   tabindex="46">validatedata
+                   <%  }) %>   tabindex="46">
                         <label for="gujarati_checkbox">Gujarati</label>
                         <input type="checkbox" id="gujarati_read" name="gujarati_read" value="YES" <% languagesKnownDetails.forEach(element=> { %>
                             <% if(element.Languages_known=="Gujarati" && element.can_read=="YES") { %>checked<% } %>

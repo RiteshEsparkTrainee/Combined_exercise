@@ -15,6 +15,9 @@
             
 
         }
+        form{
+            margin-left: 300px;
+        }
 
         .pagingComponent {
             display: flex;
@@ -31,9 +34,11 @@
         td
         {
             border: 1px solid black;
+            text-align: center;
         }
         th{
             border: 1px solid black;
+            text-align: center;
         }
         .maincontainer
         {
@@ -49,6 +54,10 @@
         {
             text-align: center;
         }
+        th > a{
+            font-size: 20px;
+        }
+        
         
        
     </style>
@@ -88,17 +97,23 @@
 </div>    
     <table>
         <tr>
-            <th>Student ID </th>
-            <th>FirstName</th>
-            <th>LastName</th>
-            <th>Email</th>
-            <th>City</th>
-            <th>Country</th>
-            <th>Gender</th>
-            <th>Father Name</th>
-            <th>Mother Name</th>
-            <th>Date of Joining</th>
-            <th>Created Date</th>
+            <th>Student ID 
+                <a class="fa-solid fa-angle-up" href="/dashboard/listdatabase?p=<%= Number(currpage) %>&order=asc&column=student_id"></a>
+                <a class="fa-solid fa-angle-down" href="/dashboard/listdatabase?p=<%= Number(currpage) %>&order=desc&column=student_id"></a> 
+            </th>
+            <th>FirstName
+                <a class="fa-solid fa-angle-up" href="/dashboard/listdatabase?p=<%= Number(currpage) %>&order=asc&column=firstname"></a>
+                <a class="fa-solid fa-angle-down" href="/dashboard/listdatabase?p=<%= Number(currpage) %>&order=desc&column=firstname"></a> 
+            </th>
+            <th>LastName
+                <a class="fa-solid fa-angle-up" href="/dashboard/listdatabase?p=<%= Number(currpage) %>&order=asc&column=lastname"></a>
+                <a class="fa-solid fa-angle-down" href="/dashboard/listdatabase?p=<%= Number(currpage) %>&order=desc&column=lastname"></a> 
+            </th>
+            <th>Email
+                <a class="fa-solid fa-angle-up" href="/dashboard/listdatabase?p=<%= Number(currpage) %>&order=asc&column=email"></a>
+                <a class="fa-solid fa-angle-down" href="/dashboard/listdatabase?p=<%= Number(currpage) %>&order=desc&column=email"></a>  
+            </th>
+        
         </tr>
       
         <% for(let i=0 ; i< userdata.length;i++){ %>
@@ -117,28 +132,7 @@
                         <%= userdata[i].email %>
                     </td>
 
-                    <td>
-                        <%= userdata[i].city %>
-                    </td>
-                    <td>
-                        <%= userdata[i].country %>
-                    </td>
-                    <td>
-                        <%= userdata[i].Gender %>
-                    </td>
-                    <td>
-                        <%= userdata[i].father_name %>
-                    </td>
-
-                    <td>
-                        <%= userdata[i].mother_name %>
-                    </td>
-                    <td>
-                        <%= userdata[i].date_of_joining %>
-                    </td>
-                    <td>
-                        <%= userdata[i].created_date %>
-                    </td>
+                  
 
 
 

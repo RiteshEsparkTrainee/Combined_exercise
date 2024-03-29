@@ -69,6 +69,8 @@ var update_db = async function (req, res) {
         })
       }
     }
+
+    console.log(data);
   
     if (data.board_name !== undefined) {
       let i = -1;
@@ -109,7 +111,7 @@ var update_db = async function (req, res) {
         console.log(work_experience_db[i])
       }
   
-      if (data.company_name != undefined) {
+      if (data.company_name !== undefined) {
   
         if (work_experience_db.length > data.company_name.length) {
           work_experience_db.forEach(async (element) => {
