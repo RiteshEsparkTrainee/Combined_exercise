@@ -1156,6 +1156,7 @@ h3{
           label1.setAttribute("for","board_name")
           label1.textContent='Name of Board'
           cell1.appendChild(label1)
+          cell1.appendChild(document.createTextNode(' '));
           var select = document.createElement('select')
           select.setAttribute("id","board_name");
           select.setAttribute("name","board_name")
@@ -1169,6 +1170,7 @@ h3{
             select.appendChild(option)
         })
         cell1.appendChild(select)       
+        cell1.appendChild(document.createTextNode(' '));
  
          
           var label2 = document.createElement('label')
@@ -1176,7 +1178,7 @@ h3{
           label2.setAttribute("for","passing_year")
           label2.textContent='Passing Year'
           cell1.appendChild(label2)
-
+          cell1.appendChild(document.createTextNode(' '));
           var input2= document.createElement('input')
             input2.setAttribute("id","passing_year")
           input2.setAttribute("name","passing_year")
@@ -1184,13 +1186,13 @@ h3{
           input2.setAttribute("type","text")
 
           cell1.appendChild(input2)
-
+          cell1.appendChild(document.createTextNode(' '));
           var label3 = document.createElement('label')
           label3.setAttribute("class","label")
           label3.setAttribute("for","percentage")
           label3.textContent='Percentage'
           cell1.appendChild(label3)
-
+          cell1.appendChild(document.createTextNode(' '));
           var input3= document.createElement('input')
             input3.setAttribute("id","percentage")
           input3.setAttribute("name","percentage")
@@ -1216,15 +1218,15 @@ h3{
                  label1.setAttribute("for","company_name")
                  label1.textContent='Company Name'
                  cell1.appendChild(label1)
-           
+                 cell1.appendChild(document.createTextNode(' '));
                  var input= document.createElement('input')
                    input.setAttribute("id","company_name")
                  input.setAttribute("name","company_name")
                  input.setAttribute("class","expereience")
                  input.setAttribute("type","text")
                  cell1.appendChild(input)
-                 row.appendChild(cell1)
-       
+                 cell1.appendChild(document.createTextNode(' '));
+                 
        
        
                 
@@ -1233,6 +1235,7 @@ h3{
                  label2.setAttribute("for","designation1")
                  label2.textContent='Designation'
                  cell1.appendChild(label2)
+                 cell1.appendChild(document.createTextNode(' '));
        
                  var input2= document.createElement('input')
                    input2.setAttribute("id","designation1")
@@ -1241,12 +1244,14 @@ h3{
                  input2.setAttribute("type","text")
        
                  cell1.appendChild(input2)
+                 cell1.appendChild(document.createTextNode(' '));
        
                  var label_31 = document.createElement('label')
                  label_31.setAttribute("class","label")
                  label_31.setAttribute("for","from")
                  label_31.textContent='From'
                  cell1.appendChild(label_31)
+                 cell1.appendChild(document.createTextNode(' '));
        
                  var input_31= document.createElement('input')
                    input_31.setAttribute("id","from")
@@ -1255,12 +1260,14 @@ h3{
                  input_31.setAttribute("type","text")
        
                  cell1.appendChild(input_31)
+                 cell1.appendChild(document.createTextNode(' '));
        
                  var label_32 = document.createElement('label')
                  label_32.setAttribute("class","label")
                  label_32.setAttribute("for","to")
                  label_32.textContent='To'
                  cell1.appendChild(label_32)
+                 cell1.appendChild(document.createTextNode(' '));
        
                  var input_32= document.createElement('input')
                    input_32.setAttribute("id","to")
@@ -1319,6 +1326,7 @@ h3{
                  label1.setAttribute("for","reference_name")
                  label1.textContent='Name'
                  cell1.appendChild(label1)
+                 cell1.appendChild(document.createTextNode(' '));
              
                
                  var input= document.createElement('input')
@@ -1328,7 +1336,7 @@ h3{
                  input.setAttribute("type","text")
                  cell1.appendChild(input)
                  row.appendChild(cell1)
-       
+                 cell1.appendChild(document.createTextNode(' '));
        
        
                 
@@ -1337,6 +1345,7 @@ h3{
                  label2.setAttribute("for","contact_no")
                  label2.textContent='Contact No'
                  cell1.appendChild(label2)
+                 cell1.appendChild(document.createTextNode(' '));
        
                  var input2= document.createElement('input')
                    input2.setAttribute("id","contact_no")
@@ -1345,12 +1354,14 @@ h3{
                  input2.setAttribute("type","text")
        
                  cell1.appendChild(input2)
+                 cell1.appendChild(document.createTextNode(' '));
        
                  var label_31 = document.createElement('label')
                  label_31.setAttribute("class","label")
                  label_31.setAttribute("for","reference_relation")
                  label_31.textContent='Reference Relation'
                  cell1.appendChild(label_31)
+                 cell1.appendChild(document.createTextNode(' '));
        
                  var input_31= document.createElement('input')
                    input_31.setAttribute("id","reference_relation")
