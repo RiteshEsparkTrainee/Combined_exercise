@@ -69,7 +69,7 @@ var search =  function (req, res) {
         if (err) {
           console.log(err)
           let message = "please enter a valid id"
-          console.log("Inside error jkdfhkhvkdvfhkjhdoi")
+     
           return res.render("searchResult", {
             data: false,
             currpage: page,
