@@ -1,7 +1,7 @@
 var express = require("express")
 
 const con = require('../../config/connection')
-var app = express()
+
 try{
 var pagination_orderBy = function (req, res) {
 

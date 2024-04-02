@@ -1,9 +1,9 @@
 var express = require("express")
 
-var path = require("path")
+
 var app = express()
 
-const jwt = require('jsonwebtoken');
+
 const cookieParser = require("cookie-parser");
 app.use(cookieParser());
 const con = require('../../config/connection')

@@ -3,19 +3,21 @@ var express = require("express")
 var app = express()
 var bodyParser = require("body-parser")
 var path = require("path")
-const md5 = require("md5")
+
 app.set('view engine', 'ejs');
 app.use(express.static(path.join(__dirname +"/public")));
 app.use(bodyParser.urlencoded({ extended: true }))
 require('dotenv').config()
 let PORT = process.env.PORT
-const jwt = require('jsonwebtoken');
+
 
 const cookieParser = require("cookie-parser");
 app.use(cookieParser());
 console.log(PORT);
 
 var middleware = require('./middleware.js')
+
+try{
 
 let forget_password = require("./controller/forgetPassword/forgetPassword_controller.js")
 app.get('/dashboard/forgetPass',forget_password)
@@ -150,4 +152,9 @@ app.get('/dashboard/postDetails/:id',middleware,paginationAjaxPostDetails)
 app.listen(PORT,()=>{
 console.log('server is listening at port ',PORT);
 })
+}
+catch(err)
+{
+    console.log("Something went wrong")
+}
 

@@ -4,6 +4,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Register User</title>
     <style>
+        .mypassword
+        {
+            position: relative;
+        }
+        .showHideImage
+        {
+            position:absolute;
+        }
         body
         {         
            
@@ -119,24 +127,25 @@
         #showPassword1
         {
             width : 35px;
-            margin-top: 18px;
+            margin-top: 20px;
          
            
         }
         #hidePassword1
         {
             width : 30px;
-            margin-top: 18px;
+            margin-top: 23px;
+             
         }
         #showPassword2
         {
             width : 35px;
-            margin-top: 18px;
+            margin-top: 20px;
         }
         #hidePassword2
         {
             width : 30px;
-            margin-top: 18px;
+            margin-top: 23px;
         }
     </style>
 </head>
@@ -198,20 +207,22 @@
                         <span class="error" id="error-city"></span>
                     </td>
                 </tr>
-                <tr>
-                    <td>
+                <tr class="mypassword" >
+                    
+                       <td>
                         <label for="password">Password</label><br>
                         <input type="text" id ="password1" name="password1" class="required"><br>
                         <span class="error" id="error-password1"></span>
-                        <td>
+                        </td>
+                        <td class="showHideImage">
                             <img src="/hide_pass.png" id="showPassword1" onclick="showPass()">
                             <img src="/show_password.jpeg" hidden id="hidePassword1" onclick="hidePass()">
                         </td>
                         
-                      <br>
+                    
 
                    
-                    </td>                    
+                                 
                 </tr>
                 
                 <tr>
@@ -232,10 +243,7 @@
             <span >Already have an account?</span><a href="/dashboard/login">sign-in</a>
             
         </div>
-        <div class="forgetPassword">
-            <span id="forget_password">Forget Password?</span>
-           
-        </div>
+        
         
         <input type="submit" value="Register" id="submitbtn">
     

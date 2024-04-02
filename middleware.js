@@ -1,5 +1,6 @@
 try{
 var validateData = (req,res,next)=>{
+    //checking the cookie is available or not
     if(req.cookies.token)
     {
         next()
