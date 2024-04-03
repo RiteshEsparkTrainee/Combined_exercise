@@ -136,7 +136,7 @@ ononline="onFunction()" onoffline="offFunction()" >
                     <form  id="onsubmit12" onsubmit="onsub()">
                         Enter name: <input type="text" name="fname">
                         <input type="submit" value="Submit">
-                        <p id="21"></p>
+                        <p id="onsubmitErrors"></p>
                       </form>
                 </td>
                 
@@ -149,7 +149,7 @@ ononline="onFunction()" onoffline="offFunction()" >
             </td>
 
             <TD>ondragend</TD>
-            <TD> <p id="dragend12" draggable="true" ondragend="myFunction21(event)">Drag me!</p> </TD>
+            <TD> <p id="dragend12" draggable="true" ondragend="myFunctiononsubmitErrors1(event)">Drag me!</p> </TD>
 
             <td>onscroll</td>
             <td><div id="myDIV" onscroll="myFunction33()">In my younger and more vulnerable years my father gave me some advice that I've been turning over in my mind ever since.
@@ -165,9 +165,9 @@ ononline="onFunction()" onoffline="offFunction()" >
            <tr>
 
             <td>oncut</td>
-            <td><input type="text" oncut="myFunction21()" value="Try to cut this text">
+            <td><input type="text" oncut="myFunctiononsubmitErrors()" value="Try to cut this text">
 
-                <p id="demo21"></p></td>
+                <p id="demoonsubmitErrors"></p></td>
 
             <td>onpaste</td>
             
@@ -262,32 +262,26 @@ function offFunction() {
 
 function onsub()
 {
-    document.getElementById("21").innerHTML="submitted";
+    document.getElementById("onsubmitErrors").innerHTML="submitted";
 }
 
 function myFunction12(event) {
   document.getElementById("drag12").innerHTML = "The element is being dragged";
 }
-function myFunction21(event) {
+function myFunctiononsubmitErrors1(event) {
   document.getElementById("dragend12").innerHTML = "Finished dragging the  element.";
 }
 function myFunction33() {
   document.getElementById("myDIV").style.color = "red";
 }
 
-function drop(event)
-{
-    event.preventDefault();
-  let data = event.dataTransfer.getData("Text");
-  event.target.appendChild(document.getElementById(data));
-  document.getElementById("droptarget").innerHTML = "The p element was dropped";
-}
+
 function myFunction77() {
   document.getElementById("demo89").innerHTML = "You copied text!"
 }
 
-function myFunction21() {
-  document.getElementById("demo21").innerHTML = "You cut text!";
+function myFunctiononsubmitErrors() {
+  document.getElementById("demoonsubmitErrors").innerHTML = "You cut text!";
 }
 function myFunction22() {
   document.getElementById("demo22").innerHTML = "You paste text!";
