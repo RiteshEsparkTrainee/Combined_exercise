@@ -7,7 +7,7 @@
     <link href="css/style.css" rel="stylesheet" type="text/css">
     <style>
         a {
-            height: 60px;
+            height: 6px;
             font-size: 20px;
             display: flex;
             font-size: 60px;
@@ -37,9 +37,11 @@
             text-align: center;
         }
         th{
+         
             border: 1px solid black;
             text-align: center;
             background-color: green;
+          
         }
         .maincontainer
         {
@@ -57,6 +59,12 @@
         }
         th > a{
             font-size: 20px;
+        }
+        #orderSubmit
+        {
+            background-color: green;
+            border: 2px solid black;
+            border-radius: 7px;
         }
         
         
@@ -78,7 +86,7 @@
             <option value="firstname"> FirstName</option>
             <option value="lastname"> LastName</option>
         </select>
-        <input type="submit" value="submit">
+        <input type="submit" value="submit" id="orderSubmit">
     </form>
     <div class="pagingComponent">
 

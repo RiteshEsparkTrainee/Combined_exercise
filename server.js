@@ -1,5 +1,5 @@
 var express = require("express")
-
+const mainRoute = require("./routes.js/mainRoute.js")
 var app = express()
 var bodyParser = require("body-parser")
 var path = require("path")
@@ -15,6 +15,7 @@ const cookieParser = require("cookie-parser");
 app.use(cookieParser());
 console.log(PORT);
 
+app.use('/dashboard',mainRoute)
 var middleware = require('./middleware.js')
 
 try{
@@ -40,31 +41,33 @@ app.post('/dashboard/forPassSave',forsave)
 
 
 
-//connection file with the database
-let con = require("./config/connection")
+
 
 
 //let login register 
-let dashboard = require("./controller/login_register/dashboard_controller.js")
-app.get('/dashboard',dashboard)
+// const dashboardRoute = require('./routes/dashboard')
+// app.use('/dashboard',dashboardRoute)
 
-let register = require("./controller/login_register/register_controller.js")
-app.get('/dashboard/register',register)
 
-let activate = require("./controller/login_register/activate_controller.js")
-app.get('/dashboard/activate',activate)
+// app.get('/dashboard',dashboard)
 
-let register_save = require("./controller/login_register/register_save_controller.js")
-app.post('/dashboard/save',register_save)
+// let register = require("./controller/login_register/register_controller.js")
+// app.get('/dashboard/register',register)
 
-let login_save = require("./controller/login_register/login_save.js")
-app.get('/dashboard/login/save',login_save)
+// let activate = require("./controller/login_register/activate_controller.js")
+// app.get('/dashboard/activate',activate)
 
-let login = require("./controller/login_register/login_controller.js")
-app.get('/dashboard/login',login)
+// let register_save = require("./controller/login_register/register_save_controller.js")
+// app.post('/dashboard/save',register_save)
 
-let logsave = require("./controller/login_register/logsave_controller.js")
-app.post('/dashboard/logSave',logsave)
+// let login_save = require("./controller/login_register/login_save.js")
+// app.get('/dashboard/login/save',login_save)
+
+// let login = require("./controller/login_register/login_controller.js")
+// app.get('/dashboard/login',login)
+
+// let logsave = require("./controller/login_register/logsave_controller.js")
+// app.post('/dashboard/logSave',logsave)
 
 //Dynamic Table
 //1st exercise
@@ -155,6 +158,6 @@ console.log('server is listening at port ',PORT);
 }
 catch(err)
 {
-    console.log("Something went wrong")
+    console.log("Something went wrong", err)
 }
 
