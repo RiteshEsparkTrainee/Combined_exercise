@@ -657,13 +657,13 @@ h3{
             } else {
                 document.getElementById("nextBtn").innerHTML = "Next";
             }
-            //... and run a function that will display the correct step indicator:
+          
             fixStepIndicator(n)
             }
 
 
             function nextPrev(n) {
-            // This function will figure out which tab to display
+        
             var x = document.getElementsByClassName("tab");
             // Exit the function if any field in the current tab is invalid:
             if (n == 1 && !validateForm()) return false;
@@ -733,7 +733,7 @@ h3{
 
                 for (let i = 0; i < eleList.length; i++) {
                     if (eleList[i].value == "") {
-                        // console.log('error', eleList[i].id)
+                        
                         document.getElementById('error-' + eleList[i].id).innerHTML = eleList[i].id + " can't be none"
                         return false
                     }
@@ -844,9 +844,9 @@ h3{
 
          if(currentTab==1)
          {
-            console.log("asihfuihddddddddddddddddddddddddddddddddddddddddddddddddddddddd")
+      
             var rows=document.querySelectorAll("#education_body tr")
-            console.log("My rows ",rows)
+            
 
             for(var i=0;i< rows.length;i++)
             {
@@ -893,7 +893,7 @@ h3{
          if(currentTab==2)
          {
             var rows=document.querySelectorAll("#workExperienceBody tr")
-            // console.log("My rows ",rows)
+          
 
             for(var i=0;i< rows.length;i++)
             {
@@ -982,10 +982,10 @@ h3{
                         // console.log("faef",language_field.length)
                         for(let j=0;j<language_field[i].length;j++)
                         {
-                            console.log("inside 2nd if")
+                           
                             if(language_field[i][j].checked)
                             {
-                                console.log("Inside 3rd if")
+                               
                                 field_checked[i]=true;
                                 break;
                             }
@@ -1000,7 +1000,7 @@ h3{
             {
                 if(language_selected[i].checked && field_checked[i]===false)
                 {
-                    console.log("final check")
+      
                     document.getElementById("error_language").innerHTML= 'please select atleast one field for the checkbox selected'
                     return false;
                 }                
@@ -1036,15 +1036,13 @@ h3{
                
                     if((technology_selected[i].checked))
                     {
-                        // console.log("inside 1st if")
-                        // language_checked=true;
-                        // console.log("faef",language_field.length)
+                        
                         for(let j=0;j<technology_options[i].length;j++)
                         {
-                            // console.log("inside 2nd if")
+                    
                             if(technology_options[i][j].checked)
                             {
-                                // console.log("Inside 3rd if")
+                     
                                 technology_field_checked[i]=true;
                                 break;
                             }
@@ -1059,7 +1057,7 @@ h3{
             {
                 if(technology_selected[i].checked && technology_field_checked[i]===false)
                 {
-                    // console.log("final check")
+                 
                     document.getElementById("check_technology_level").innerHTML= 'please select atleast one field for the checkbox selected'
                     return false;
                 }                
@@ -1070,7 +1068,7 @@ h3{
          if(currentTab == 5)
          {
             var rows1=document.querySelectorAll("#referenceBody tr")
-            // console.log("My rows1 ",rows1)
+         
 
             for(var i=0;i< rows1.length;i++)
             {
@@ -1147,7 +1145,7 @@ h3{
         const education_items = document.getElementById("education_body")
         function add_Rows()
         {
-        //   console.log("hELLO");
+      
           var row = education_items.insertRow();
           row.setAttribute("id","dynamic_row")
           var cell1=document.createElement('td')
@@ -1209,7 +1207,7 @@ h3{
                
                function experience_addRow()
                {
-               //   console.log("hELLO");
+              
                  var row = postItems.insertRow();
                  row.setAttribute("id","dynamic_row")
                  var cell1=document.createElement('td')
@@ -1295,9 +1293,9 @@ h3{
             var table = document.getElementById("workExperienceTable");
             var rowCount = table.rows.length;
             
-            // Ensure there's at least one row other than the header
+  
             if (rowCount > 0) {
-                table.deleteRow(rowCount - 1); // Delete the last row
+                table.deleteRow(rowCount - 1); 
             }
         }
         function subtractRows2()
@@ -1305,9 +1303,9 @@ h3{
             var table = document.getElementById("referenceTable");
             var rowCount = table.rows.length;
             
-            // Ensure there's at least one row other than the header
+        
             if (rowCount > 0) {
-                table.deleteRow(rowCount - 1); // Delete the last row
+                table.deleteRow(rowCount - 1); 
             }
         }
            
@@ -1317,7 +1315,7 @@ h3{
                
                function addReferencerows()
                {
-                //  console.log("hELLO");
+           
                  var row = reference_items.insertRow();
                  row.setAttribute("id","dynamic_row")
                  var cell1=document.createElement('td')

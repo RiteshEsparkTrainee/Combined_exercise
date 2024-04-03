@@ -13,10 +13,7 @@
     border: 1px solid black;
         text-align: center;
         margin-top: 50px;
-        text-align: center;
-        
-        
-        
+        text-align: center;             
     }
     #cityname 
     {
@@ -37,11 +34,8 @@
         text-align: center;
         margin-top: 50px;
         border: 1px solid black;
-        text-align: center;
-        
-
-
-    }
+        text-align: center;      
+   }
     #showtime
     {
         height: 45px;
@@ -115,17 +109,14 @@
      function updateTime()
      {
         let timeZone_obtained = document.getElementById("showtime").value;
-        document.getElementById("cityname").innerHTML=timeZone_obtained
-       
+        document.getElementById("cityname").innerHTML=timeZone_obtained       
         let date = new Date();
        
         document.getElementById("input").innerText = date;
 
-
         let difftime = new Date().toLocaleString('en-US', {
             timeZone: timeZone_obtained
-        })
-       
+        })      
 
           document.getElementById("output").innerHTML = difftime;
      }      

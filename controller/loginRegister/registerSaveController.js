@@ -71,7 +71,7 @@ var save = async function(req,res)
      const id =await  insert_data(query)
      
 
-     res.render('register_with_link',{key,id})    
+     res.render('registerWithLink',{key,id})    
      }
 }
 }

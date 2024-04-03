@@ -6,7 +6,7 @@ try{
 var forSave =async function(req,res){
     let password1 = req.body.password1
     let username = req.body.username
-    console.log("username is",username);
+    // console.log("username is",username);
   
     let query = `select * from users where email = '${username}'`
     async function change_password(query)
@@ -28,21 +28,25 @@ var forSave =async function(req,res){
         let result =await change_password(query)
 
         let salt = result[0].salt
-        console.log(salt)
+        // console.log(salt)
 
         let passwordSalt = password1+salt
         let hashed_password = md5(passwordSalt)
 
-        console.log(hashed_password)
+        // console.log(hashed_password)
 
-        console.log(result)
+        // console.log(result)
 
         let updatePasswordQuery = `update users set user_password = '${hashed_password}' where email = '${username}'`
-        console.log(updatePasswordQuery)
+        // console.log(updatePasswordQuery)
         let updatePassword = await change_password(updatePasswordQuery)
-        res.render('savedChangePassword')
+        
 
-  
+        // res.redirect("/login")
+        // res.render('savedChangePassword')
+        // window.location.href="/savedChangedPassword"
+
+      res.send("Your password is changed successfuly")
    
       
   

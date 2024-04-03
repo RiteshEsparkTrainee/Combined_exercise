@@ -13,7 +13,7 @@
         width: 30px;
     }
 
-    .position1 {
+    .timerButtonClass {
         margin-bottom: 300px;
     }
 
@@ -41,7 +41,7 @@
         align-items: center;
         justify-content: center;
     }
-    #position4{
+    #timeleftSec{
         margin-bottom: 300px;
         margin-left: 10px;
        
@@ -64,17 +64,12 @@
     <h3 id="score">Your Score is :
         <span id="userScore">0 </span>
     </h3>
-    <div class="flex-center">
-        <script>var rowCount = 1, columnCount = 1, realRow, realColumn, cell, row </script>
-        <script>var userCount = 0</script>
-        <script>console.log(rowCount)</script>
-        <script>console.log(columnCount)</script>
+    <div class="flex-center">        
 
-        <button id="timerButton" class="position1" onclick="start()">Click here to start the Game !!</button>
+        <button id="timerButton" class="timerButtonClass" onclick="start()">Click here to start the Game !!</button>
         
-        <div id="countdown" class="position1"> </div>
-        <div id ="position4">  Seconds Left</div>
-        
+        <div id="countdown" class="timerButtonClass"> </div>
+        <div id ="timeleftSec">  Seconds Left</div>        
         
         <table class="mainTable" id="myTable">
 
@@ -94,17 +89,19 @@
 
 
     <script>
+        let userCount = 0
+        let rowCount = 1, columnCount = 1, cell;
         const tbody = document.querySelector('#myTable tbody');
         tbody.addEventListener('click', function (e) {
           
             cell = e.target.closest('td');
             if (!cell) { return; } // Quit, not clicked on a cell
             row = cell.parentElement;
-            console.log(cell.innerHTML, row.rowIndex, cell.cellIndex);
+            
             rowCount += 1;
             columnCount += 1;
-            let var_name = e.target.style.opacity
-            if (var_name == "0.5") {
+            let let_name = e.target.style.opacity
+            if (let_name == "0.5") {
                 checkRightClick()
                 userCount += 1
                 document.getElementById("userScore").innerHTML = userCount
@@ -116,24 +113,22 @@
 
                 document.getElementById("userScore").innerHTML = userCount
             }
-            console.log("the real score:-" + userCount)
-
-
+          
         });
         function add_cells() {  //apply async await
     return new Promise(resolve => {
         // Add rows
-        var table = document.getElementById('myTable');
-        var x = document.getElementById("row1").cells.length;
-        var row = table.insertRow();
+        let table = document.getElementById('myTable');
+        let x = document.getElementById("row1").cells.length;
+        let row = table.insertRow();
 
-        for (var i = 0; i < x; i++) {
+        for (let i = 0; i < x; i++) {
             row.insertCell();
         }
 
         // Add columns
-        var rows = document.querySelectorAll("tr");
-        for (var i = 0; i < rows.length; i++) {
+        let rows = document.querySelectorAll("tr");
+        for (let i = 0; i < rows.length; i++) {
             rows[i].insertCell();
         }
 
@@ -144,19 +139,18 @@
 
 function RandomColor() {
     return new Promise(resolve => {
-        var myArray = [];
-        for (var i = 0; i < 20; i++) {
-            var randomColor = "#" + Math.floor(Math.random() * 16777215).toString(16);
+        let myArray = [];
+        for (let i = 0; i < 20; i++) {
+            let randomColor = "#" + Math.floor(Math.random() * 16777215).toString(16);
             myArray.push(randomColor);
         }
-        var rand = myArray[Math.floor(Math.random() * myArray.length)];
+        let rand = myArray[Math.floor(Math.random() * myArray.length)];
 
-        var columns = document.querySelectorAll("td");
-        for (var i = 0; i < columns.length; i++) {
+        let columns = document.querySelectorAll("td");
+        for (let i = 0; i < columns.length; i++) {
             columns[i].style.backgroundColor = rand;
             columns[i].style.opacity = 1;
         }
-
         resolve();
     });
 }
@@ -166,27 +160,21 @@ function RandomColor() {
 
             await add_cells()
             await RandomColor()
-            var rowslength = table1.querySelectorAll("tr").length;
-            var columnslength = table1.querySelector("tr:nth-child(1)").querySelectorAll("td").length; // Assuming all rows have the same number of 
+            let rowslength = table1.querySelectorAll("tr").length;
+            let columnslength = table1.querySelector("tr:nth-child(1)").querySelectorAll("td").length; // Assuming all rows have the same number of 
             
             realRow = Math.floor(Math.random() * rowslength)
             realColumn = Math.floor(Math.random() * columnslength)
-            console.log("Random Row " + Math.floor(Math.random() * rowslength))
-            console.log("Random Column " + Math.floor(Math.random() * columnslength))
-            var ele = table1.rows[realRow].cells[realColumn];
+
+            let ele = table1.rows[realRow].cells[realColumn];
             ele.style.opacity = "0.5"
 
-            console.log(ele)
+          
         }
-
-
-
-        var timer;
-        var timeLeft = 10;
-
+        let timer;
+        let timeLeft = 10;
         function gameOver() {
-            clearInterval(timer);
-           
+            clearInterval(timer);           
         }
         function updateTimer() {
             timeLeft = timeLeft - 1;
@@ -197,25 +185,20 @@ function RandomColor() {
                 document.getElementById('countdown').innerHTML = "Times Up!!!";
             document.getElementById('myTable').style.display = 'none'
             document.getElementById('timerButton').style.display='none'
-            document.getElementById('position4').style.display='none'
-            
-           
+            document.getElementById('timeleftSec').style.display='none'        
+          
 
             }
         }
         function start() {
             
             timer = setInterval(updateTimer, 1000);
-
-
             updateTimer();
             document.getElementById('timerButton').style.display='none'
-            document.getElementById('position4').style.display='block'
+            document.getElementById('timeleftSec').style.display='block'
             document.getElementById('myTable').style.display = 'block'
         }
-
-
-        document.getElementById('position4').style.display='none'
+        document.getElementById('timeleftSec').style.display='none'
         document.getElementById('myTable').style.display = 'none'
     </script>
 </body>

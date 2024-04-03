@@ -41,9 +41,7 @@
             <TH>Practical marks</TH>
             <th>Theory Marks</th>
             <TH>Practical marks</TH>
-
-        </tr>
-        
+        </tr>        
             <% for(let i=0;i<data.length;i+=3) { %>
                 <tr>
                 <td>
@@ -53,12 +51,10 @@
                         <td><%= data[j].obtained_theory_marks  %></td>
                         <td><%= data[j].obtained_practical_marks  %></td>
                         <% } %>
-
                     <td><%=  data[i].obtained_theory_marks+data[i].obtained_practical_marks+data[i+1].obtained_theory_marks
                     +data[i+1].obtained_practical_marks+data[i+2].obtained_theory_marks+data[i+2].obtained_practical_marks %></td>
             </tr>
-            <% } %>
-       
+            <% } %>       
     </table>
     <br>
     Attendance of Student is <%= atten[0].atten  %>

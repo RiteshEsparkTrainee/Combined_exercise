@@ -54,14 +54,12 @@
         .title
         {
             text-align: center;
-        }
-      
+        }  
         
     </style>
 </head>
 <body>
-    <h1>Jaiswal Ritesh : 24DEV068</h1>
-    
+    <h1>Jaiswal Ritesh : 24DEV068</h1>    
     <form action="/dashboard/search">
         <input type="text" placeholder="enter user ID" name="userID" tabindex="0">
         <input type="submit" value="Go" tabindex="1" class="submit">
@@ -81,58 +79,45 @@
     </form>
 
     <div class="pagingComponent">
-
         <% if(currpage>1){ %>
         <a class="fa-solid fa-angles-left"  href="/dashboard/search?p=1&firstname=<%=firstname %>&lastname=<%= lastname %>&city=<%= city %>&option=<%= option  %>"></a><%}%>
             
         <% if(currpage>1){ %>
                 <a class="fa-solid fa-angle-left" class="disableleft"  href="/dashboard/search?p=<%= Number(currpage)-1   %>&firstname=<%= firstname %>&lastname=<%= lastname %>&city=<%= city %>&option=<%= option  %>"></a><%}%>
                     <div>
-                        <%=currpage %>
-                        
+                        <%=currpage %>                        
                     </div>
 
-
                     <% if(currpage<lastpage){ %>
-                        <a class="fa-solid fa-angle-right" class="displayRight" href="/dashboard/search?p=<%=Number(currpage)+1 %>&firstname=<%= firstname %>&lastname=<%= lastname %>&city=<%= city %>&option=<%= option  %>"></a><%}%>
-            
-             
-                  
+                        <a class="fa-solid fa-angle-right" class="displayRight" href="/dashboard/search?p=<%=Number(currpage)+1 %>&firstname=<%= firstname %>&lastname=<%= lastname %>&city=<%= city %>&option=<%= option  %>"></a><%}%>           
+                               
                         <% if(currpage<lastpage){ %>
                                 <a class="fa-solid fa-angles-right" href="/dashboard/search?p=<%=lastpage %>&firstname=<%=firstname %>&lastname=<%= lastname %>&city=<%= city %>&option=<%= option  %>"></a><%}%>
 </div>
 
 
 <%if(message){%>
-    <h3><%= message  %></h3>
-    
+    <h3><%= message  %></h3>    
     <% } %>
 <% if(message==false) {%>
-    <h2 class="title">Search Grid</h2>
- 
+    <h2 class="title">Search Grid</h2> 
     <table class="mytable">
         <tr>
             <th>Student ID</th>
             <th> Firstname </th>
             <th>Lastname </th>
             <th>Email</th>
-            <th>City</th>
-          
-        </tr>
-        
-        
+            <th>City</th>          
+        </tr>       
             <% for(let i=0;i<data.length;i++) { %>
                 <tr>
                 <td>
                    <%=data[i].student_id  %> 
-
                 </td>
                 <td><%= data[i].firstname %></td>
                 <td><%= data[i].lastname %></td>
                 <td><%=  data[i].email%></td>
-                <td><%=  data[i].city%></td>
-              
-
+                <td><%=  data[i].city%></td>             
             </tr>
             <% } %>
        

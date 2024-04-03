@@ -70,7 +70,7 @@
     </table>
     <script>
         var id = window.location.pathname.split("/").pop()
-        console.log(id)
+     
         try{
            
         const allpostDetails=async()=>{
@@ -92,7 +92,7 @@
 
 
             document.getElementById("commentButton").style.display='block'
-        console.log(postDetails)
+        
         }
         allpostDetails()
        
@@ -112,9 +112,7 @@
         document.getElementById("commentTable").style.display='block'
         const commentItems = document.getElementById("commentBody")
         commentResult.forEach(element=>{
-                        // const li = document.createElement('li')
-                        // postItems.appendChild(li)
-                        // li.innerHTML= JSON.stringify(element)
+                       
                         var row = commentItems.insertRow();
                         let cell1=row.insertCell(0);
                         let cell2=row.insertCell(1);

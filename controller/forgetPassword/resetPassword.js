@@ -3,8 +3,7 @@ try{
     var resetPassword = async function(req,res){
         let username = req.query.username;
         let new_key=req.query.key
-        console.log(username)
-        console.log(new_key)
+       
         function reset_password_link(query)
         {
           return new Promise((resolve,reject)=>{

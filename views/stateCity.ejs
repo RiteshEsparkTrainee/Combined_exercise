@@ -5,8 +5,7 @@
     <title>Ajax Practice2</title>
     <style>
       #states{
-        margin-left: 380px;
-        
+        margin-left: 380px;        
       }
       h2
       {
@@ -22,25 +21,20 @@
 <body>
     <div class="maincontainer">
    <h2>Jaiswal Ritesh : 24DEV068</h2>
-   <h2>AJAX State-City Selection</h2>
-   
+   <h2>AJAX State-City Selection</h2>   
     <select id="states" >
-        <option value="" >--select-state--</option>
-    
+        <option value="" >--select-state--</option>    
     <% for(let i=0 ;i <result.length;i++) {%>
         <option  value="<%= result[i].city_state  %>"><%= result[i].city_state  %></option>
         <% } %>
     </select>
-
     <select id="options">
         <option value="">--select--</option>
-    </select>
-   
+    </select>   
     </div>
     <script>
         const stateDropdown = document.getElementById("states")
         const optionDropdown= document.getElementById("options")
-
         stateDropdown.addEventListener('change',function(){
             const selectedstate=this.value;
             fetch(`/dashboard/api/cities?state=${selectedstate}`)
@@ -54,7 +48,6 @@
                     optionDropdown.appendChild(option)
                 })
             }).catch(error=> console.error("Error fetching cities",error))
-
         })
         
     </script>

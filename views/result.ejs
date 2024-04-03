@@ -56,19 +56,13 @@
         <% if(currpage>1){ %>
                 <a class="fa-solid fa-angle-left" class="disableleft"  href="/dashboard/result?p=<%= Number(currpage)-1   %>"></a><%}%>
             
-
-
                     <div>
-                        <%=currpage %>
-                        
+                        <%=currpage %>                        
                     </div>
-
 
                     <% if(currpage<10){ %>
                         <a class="fa-solid fa-angle-right" class="displayRight" href="/dashboard/result?p=<%= Number(currpage)+1  %>"></a><%}%>
-            
-             
-                  
+                                          
                         <% if(currpage<10){ %>
                                 <a class="fa-solid fa-angles-right" href="/dashboard/result?p=<%= 10  %>"></a><%}%>
 </div>
@@ -81,9 +75,7 @@
         <th colspan="2">Prelium</th>
         <th colspan="2">Final</th>
         <th rowspan="2">Total Marks</th>
-        <th rowspan="2">Button</th>
-        
-
+        <th rowspan="2">Button</th>     
     </tr>
     <tr class="myheader2">
         <th>Practical</th>
@@ -106,12 +98,9 @@
         <td><%= data[i].final_theory_marks %></td>
         <td><%=  data[i].primarly_practical_marks+data[i].primarly_theory_marks+data[i].terminal_practical_marks + data[i].terminal_theory_marks+
            data[i].final_practical_marks+ data[i].final_theory_marks %></td>
-           <td><a href="/dashboard/resultDetails?id=<%= data[i].student_id %>">click here</a>  </td>
-           
-        </tr>
-       
-        <% } %>
-       
+           <td><a href="/dashboard/resultDetails?id=<%= data[i].student_id %>">click here</a>  </td>           
+        </tr>       
+        <% } %>       
 </table>
 </div>
 </body>
