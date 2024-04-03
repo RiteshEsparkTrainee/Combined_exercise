@@ -1,7 +1,7 @@
 const express = require("express")
 var middleware = require('../middleware')
 
-let ticTacToeController = require("../controller/tic_tac_toe/tic_tac_toe_controller")
+let ticTacToeController = require("../controller/ticTacToe/ticTacToeController")
 
 const router = express.Router()
 

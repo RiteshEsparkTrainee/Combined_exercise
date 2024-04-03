@@ -1,6 +1,6 @@
 const express = require("express")
 var middleware = require('../middleware')
-let delimeterSearchController = require("../controller/delimeter_search/delimeterSearchController")
+let delimeterSearchController = require("../controller/delimeterSearch/delimeterSearchController")
 
 const router = express.Router()
 

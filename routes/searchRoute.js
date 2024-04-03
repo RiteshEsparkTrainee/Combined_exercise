@@ -1,7 +1,7 @@
 const express = require("express")
 var middleware = require('../middleware')
 
-let searchController = require("../controller/search/search_controller")
+let searchController = require("../controller/search/searchController")
 
 const router = express.Router()
 

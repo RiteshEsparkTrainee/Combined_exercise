@@ -1,6 +1,6 @@
 const express = require("express")
 var middleware = require('../middleware')
-let dynamiTableController = require("../controller/dynamic_table/dynamic_table_controller")
+let dynamiTableController = require("../controller/dynamicTable/dynamicTableController")
 
 const router = express.Router()
 

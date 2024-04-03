@@ -1,13 +1,13 @@
 const express = require("express")
 
 
-let dashboardController = require("../controller/login_register/dashboard_controller")
-let registerController = require("../controller/login_register/register_controller.js")
-let activateController = require("../controller/login_register/activate_controller.js")
-let registerSaveController = require("../controller/login_register/register_save_controller.js")
-let loginSaveController = require("../controller/login_register/login_save.js")
-let loginController = require("../controller/login_register/login_controller.js")
-let logsaveController = require("../controller/login_register/logsave_controller.js")
+let dashboardController = require("../controller/loginRegister/dashboardController.js")
+let registerController = require("../controller/loginRegister/registerController.js")
+let activateController = require("../controller/loginRegister/activateController.js")
+let registerSaveController = require("../controller/loginRegister/registerSaveController.js")
+let loginSaveController = require("../controller/loginRegister/loginSave.js")
+let loginController = require("../controller/loginRegister/loginController.js")
+let logsaveController = require("../controller/loginRegister/logsaveController.js")
 const router=express.Router()
 
 router.get('/',dashboardController)

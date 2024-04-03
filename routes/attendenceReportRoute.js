@@ -1,6 +1,6 @@
 const express = require("express")
 var middleware = require('../middleware')
-let attendanceReportController = require("../controller/attendence_report/attendence_report_controller")
+let attendanceReportController = require("../controller/attendenceReport/attendenceReportController")
 
 const router = express.Router()
 

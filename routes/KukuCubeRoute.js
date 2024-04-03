@@ -1,7 +1,7 @@
 const express = require("express")
 var middleware = require('../middleware')
 
-let kukuCubeController = require("../controller/Kuku_cube/kuku_cube_controller.js")
+let kukuCubeController = require("../controller/kukuCube/kukuCubeController")
 
 const router = express.Router()
 

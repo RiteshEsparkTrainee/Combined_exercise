@@ -1,7 +1,7 @@
 const express = require("express")
 var middleware = require('../middleware')
 
-let timeZoneConvertorController = require("../controller/time_zone_converter/timeZoneConvertor_controller")
+let timeZoneConvertorController = require("../controller/timeZoneConverter/timeZoneConvertorController")
 
 const router = express.Router()
 

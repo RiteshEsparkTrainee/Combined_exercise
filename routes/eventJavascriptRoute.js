@@ -1,7 +1,7 @@
 const express = require("express")
 var middleware = require('../middleware')
 
-let eventsJavascriptController = require("../controller/javascriptEvents/eventsJS")
+let eventsJavascriptController = require("../controller/javascriptEvents/eventsJSController")
 
 const router = express.Router()
 

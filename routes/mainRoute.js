@@ -8,7 +8,7 @@ const eventsJavascript = require('./eventJavascriptRoute')
 const paginationOrderBy = require('./paginationOrderByRoute')
 const attendanceReport = require('./attendenceReportRoute')
 const result = require('./resultRoute')
-const resultDetails = require('./resultDetailsRoute')
+
 const search = require('./searchRoute')
 const delimeterSearch = require('./delimeterSearchRoute')
 const stateCity = require('./stateCityRoute')
@@ -16,6 +16,7 @@ const cities = require('./cityRoute')
 const ajaxJobAppForm = require('./jobAppFormRoute')
 const timeZoneConvertor = require('./timeZoneConvertor')
 const ajaxPaginationPosts = require('./ajaxFetchApiPagination')
+const forgetPassword = require('./forgetPasswordRoute')
 
 const router = express.Router()
 
@@ -28,7 +29,7 @@ router.use('/',eventsJavascript)
 router.use('/',paginationOrderBy)
 router.use('/',attendanceReport)
 router.use('/',result)
-router.use('/',resultDetails)
+
 router.use('/',search)
 router.use('/',delimeterSearch)
 router.use('/',stateCity)
@@ -36,5 +37,6 @@ router.use('/',cities)
 router.use('/',ajaxJobAppForm)
 router.use('/',timeZoneConvertor)
 router.use('/',ajaxPaginationPosts)
+router.use('/',forgetPassword)
 
 module.exports = router

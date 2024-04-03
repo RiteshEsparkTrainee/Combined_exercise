@@ -1,7 +1,7 @@
 const express = require("express")
 var middleware = require('../middleware')
 
-let paginationOrderByController = require("../controller/pagination_orderBy/pagination_orderBy_controller")
+let paginationOrderByController = require("../controller/paginationOrderBy/paginationOrderByController")
 
 const router = express.Router()
 

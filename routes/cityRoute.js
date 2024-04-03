@@ -1,6 +1,6 @@
 const express = require("express")
 var middleware = require('../middleware')
-let citiesController = require("../controller/states_city/cities_controller")
+let citiesController = require("../controller/stateCity/citiesController")
 
 const router = express.Router()
 

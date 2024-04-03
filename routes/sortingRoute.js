@@ -1,7 +1,7 @@
 const express = require("express")
 var middleware = require('../middleware')
 
-let sortingController = require("../controller/sorting/sorting_controller")
+let sortingController = require("../controller/sorting/sortingController")
 
 const router = express.Router()
 

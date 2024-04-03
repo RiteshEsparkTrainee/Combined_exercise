@@ -1,7 +1,7 @@
 const express = require("express")
 var middleware = require('../middleware')
-let ajaxFetchApipost = require("../controller/AJAX_pagination/posts_user_controller")
-let ajaxFetchApiPostDetails = require("../controller/AJAX_pagination/postDetails_controller")
+let ajaxFetchApipost = require("../controller/ajaxPagination/postsController")
+let ajaxFetchApiPostDetails = require("../controller/ajaxPagination/postDetailsController")
 
 const router = express.Router()
 
