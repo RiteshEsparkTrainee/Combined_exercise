@@ -25,6 +25,19 @@
         h3{
             text-align: center;
         }
+        a
+        {
+            text-decoration: none;
+            color: white;
+            font-size: 20px;
+            font-weight: bold;
+        }
+        .indexButton
+        {
+            background-color: green;
+            border: 1px solid black;
+            border-radius: 7px;
+        }
 
     </style>
 </head>
@@ -35,11 +48,13 @@
         </h2>
         <h3>CRUD Operation</h3>
         <div class="insertUser">
-            <a href="/dashboard/jobAppForm/insert">Click here to insert the user</a>
+            <button class="indexButton">
+            <a href="/dashboard/jobAppForm/insert">Click here to insert the user</a></button>
         </div>
 
-        <div class="updateUser">
-            <a href="/dashboard/jobAppForm/userlist">Click here to update the user</a>
+        <div class="updateUser" >
+            <button class="indexButton">
+            <a href="/dashboard/jobAppForm/userlist">Click here to update the user</a></button>
         </div>
     </div>
 

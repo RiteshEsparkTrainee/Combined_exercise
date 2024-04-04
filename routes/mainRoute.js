@@ -19,7 +19,7 @@ const ajaxPaginationPosts = require('./ajaxFetchApiPagination')
 const forgetPassword = require('./forgetPasswordRoute')
 const cssPractical1 = require('./cssPractical1')
 const cssPractical2 = require('./cssPractical2')
-const cssPractical3 = require('../controller/cssPractical3/cssPractical3')
+const cssPractical3 = require('./cssPractical3')
 
 
 const router = express.Router()

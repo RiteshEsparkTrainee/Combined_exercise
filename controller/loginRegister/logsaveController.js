@@ -45,6 +45,13 @@ var logsave = async function(req,res){
     res.send(message)
     return;
  }
+ let active = validate_password_result[0].isActive
+ if(active == 0)
+ {
+    let message = 'user is not active'
+    res.send(message)
+    return;
+ }
 
  let jwtSecretKey = process.env.JWT_SECRET_KEY;
  let data1 = {

@@ -95,8 +95,14 @@ h3{
     text-align:center;
     
     font-size: 10px;
+    margin-bottom: 15px;
     
 }
+.error
+{
+    color: red;
+}
+
 
 
 
@@ -149,7 +155,7 @@ h3{
                     <td>
                         <label for="Designation"> Designation </label>
                         <input type="text" id="designation" name="designation" placeholder="Senior Developer" value="<%= basicDetailsResult[0].DESIGNATION %>"
-                            class="required" tabindex="4"><br><br>
+                            class="required" tabindex="4"><br>
                         <span class="error" id="error-designation"></span><br><br>
                     </td>
 
@@ -158,13 +164,13 @@ h3{
                     <td>
                         <label for="Address1"> Address1 </label>
                         <input type="text" id="address1"  value="<%= basicDetailsResult[0].ADDRESS1 %>"     name="address1" placeholder="E-306 Bhagvat Greens"
-                            class="required" tabindex="5"><br><br>
+                            class="required" tabindex="5"><br>
                         <span class="error" id="error-address1"></span><br><br>
                     </td>
                     <td>
                         <label for="Address2"> Address2 </label>
                         <input type="text" id="address2"  value="<%= basicDetailsResult[0].ADDRESS2 %>"  name="address2" placeholder="Narol Ahmedabad" class="required"
-                            tabindex="6">
+                            tabindex="6"><br>
                         <span class="error" id="error-address2"></span><br><br>
                         <br><br>
                     </td>
@@ -248,7 +254,7 @@ h3{
         </fieldset>
         </div>
 
-        <div class="tab">
+        <div class="tab" id="educationDetails">
             <fieldset>
             
         
@@ -729,14 +735,18 @@ h3{
                 }
 
                 let eleList = document.querySelectorAll('.required')
-                console.log(eleList)
-
+                // console.log(eleList)
+                let required_fields=false;
                 for (let i = 0; i < eleList.length; i++) {
                     if (eleList[i].value == "") {
-                        
+                        required_fields=true;
                         document.getElementById('error-' + eleList[i].id).innerHTML = eleList[i].id + " can't be none"
-                        return false
+                        
                     }
+                }
+                if(required_fields==true)
+                {
+                    return false;
                 }
 
                 
