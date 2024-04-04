@@ -31,7 +31,7 @@ var activate = async function(req,res)
     let currentTime = new Date()
   
      let time_diff=currentTime - createdTime
-     console.log(time_diff)
+    //  console.log(time_diff)
 
      if(time_diff > 30000)
      {
@@ -43,10 +43,10 @@ var activate = async function(req,res)
     
 
 
-    console.log("my key",key_obtained_db)
+    // console.log("my key",key_obtained_db)
   
-    console.log(typeof key_obtained_db)
-    console.log(typeof key1)
+    // console.log(typeof key_obtained_db)
+    // console.log(typeof key1)
     if((key_obtained_db) == key1)
     {
     res.render('activate',{message : false})

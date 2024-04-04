@@ -4,7 +4,7 @@ try {
 
     let id = req.body.user_id
     let data = req.body
-    console.log("I got the user ID ", id)
+    // console.log("I got the user ID ", id)
     const update_data = (query) => {
       return new Promise(function (resolve, reject) {
         con.query(query, function (err, result) {
@@ -21,7 +21,7 @@ try {
     }
     //basic Details
     let query1 = `update BASIC_DETAILS set FIRST_NAME = '${data.fname}' , LAST_NAME='${data.lname}' , DESIGNATION='${data.designation}', ADDRESS1='${data.address1}' , ADDRESS2='${data.address2}' , PHONE_NO = ${data.phone}  , city = '${data.city}',GENDER = '${data.gender}' , ZIP_CODE= ${data.zipcode},email = '${data.email}',RELATIONSHIP_STATUS= '${data.relationship_status}', DATE_OF_BIRTH = '${data.dateofbirth}'  where EMPLOYEE_ID=${id}`
-    console.log(query1)
+    // console.log(query1)
     let query1_1 = await update_data(query1)
 
     //Education_details
@@ -51,7 +51,7 @@ try {
           try {
             if (!data.board_name.includes(element)) {
               let educationDelete = `Delete from education_master where education_id = ${id}  and name_of_board='${element}'`
-              console.log(educationDelete)
+              // console.log(educationDelete)
               let query = await update_data(educationDelete)
             }
 
@@ -83,7 +83,7 @@ try {
           }
         }
         else {
-          console.log("inside else")
+          // console.log("inside else")
           let query5 = `insert into education_master (education_id,name_of_board,passing_year,percentage) values (${id},'${element}',${data.passing_year[i]},${data.percentage[i]})`
           let query = await update_data(query5)
         }
@@ -98,9 +98,9 @@ try {
       work_experience_db.push(element.Company_name)
     })
 
-    for (let i = 0; i < work_experience_db.length; i++) {
-      console.log(work_experience_db[i])
-    }
+    // for (let i = 0; i < work_experience_db.length; i++) {
+    //   console.log(work_experience_db[i])
+    // }
 
     if (data.company_name !== undefined) {
 
@@ -109,7 +109,7 @@ try {
           try {
             if (!data.company_name.includes(element)) {
               let workExperienceDelete = `Delete from WORK_EXPERIENCE where worker_id = ${id}  and Company_name='${element}'`
-              console.log(workExperienceDelete)
+              // console.log(workExperienceDelete)
               let query = await update_data(workExperienceDelete)
             }
 
@@ -139,7 +139,7 @@ try {
           }
         }
         else {
-          console.log("inside else")
+          // console.log("inside else")
           let query5 = `insert into WORK_EXPERIENCE (worker_id,Company_name,Designation,_FROM,_TO) values (${id},'${element}','${data.designation1[i]}','${data.from[i]}','${data.to[i]}')`
           let result = await update_data(query5)
         }
@@ -176,13 +176,13 @@ try {
 
     let language_query = `select Languages_known  FROM Languages_known where id=${id}`
     let languages_result = await update_data(language_query)
-    console.log("result", languages_result)
+    // console.log("result", languages_result)
     languages_selected_db = []
 
     languages_result.forEach(element => {
       languages_selected_db.push(element.Languages_known)
     })
-    console.log(languages_selected_db)
+    // console.log(languages_selected_db)
 
     let languages_known_values = [[data.hindi_checkbox, data.hindi_read, data.hindi_write, data.hindi_speak], [data.english_checkbox, data.english_read, data.english_write, data.english_speak],
     [data.gujarati_checkbox, data.gujarati_read, data.gujarati_write, data.gujarati_speak]]
@@ -299,13 +299,13 @@ try {
         else {
           let query6 = `insert into Technologies_you_know(technology_id,technologies_known,level_of_expertise) values (${id},'${technology_checkBox[i]}','${level_of_expertise[i]}') `
           let last_id_10 = await update_data(query6)
-          console.log(query6)
+          // console.log(query6)
         }
       }
       if (technology_checkBox[i] !== undefined && technology_checkBox[i].includes('Oracle')) {
         if (technology_selected_db.includes('Oracle')) {
           let query5 = `update Technologies_you_know set technologies_known='${technology_checkBox[i]}' ,level_of_expertise= '${level_of_expertise[i]}' where technology_id = ${id} and technologies_known='${technology_checkBox[i]}'`
-          console.log(query5)
+          // console.log(query5)
           let last_id_10 = await update_data(query5)
         }
         else {
@@ -366,9 +366,9 @@ try {
       })
     }
     let query7 = `update  PREFERENCE set Preferred_location= '${data.preferred_location}',Notice_period= '${data.notice_period}',Expected_ctc='${data.expexted_ctc}',Current_ctc='${data.current_ctc}',Department= '${data.department}'  where PREFERENCE_ID = ${id} `
-    console.log(query7)
+    // console.log(query7)
     let last_id = await update_data(query7)
-    console.log("finally update")
+    // console.log("finally update")
     res.json()
   }
 }

@@ -25,7 +25,7 @@ var logsave = async function(req,res){
     }
  let validate_username = `select * from users where email= '${data.username}'`
  let validate_username_result =await login_data(validate_username)
- console.log("userresult",validate_username_result)
+//  console.log("userresult",validate_username_result)
  if(validate_username_result.length==0)
  { let message = 'invalid crendentials'
     res.send(message)

@@ -3,9 +3,9 @@ try{
 var cities = function(req,res)
 {
     const state= req.query.state;
-    console.log(state)
+    // console.log(state)
     let query = `select city_name from state_city_master where city_state = '${state}'`
-    console.log(query)
+    // console.log(query)
     con.query(query,function(err,results){
         if(err)
         {
@@ -16,7 +16,7 @@ var cities = function(req,res)
         else
         {
             const city = results.map(result=>result.city_name)
-            console.log(city)
+            // console.log(city)
             res.json(city)
         }
     })

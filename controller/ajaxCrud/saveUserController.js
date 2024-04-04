@@ -1,8 +1,8 @@
 const con = require('../../config/connection')
 try {
   var saveUser = async function (req, res) {
-    console.log(res.statusCode);
-    console.log(req.body)
+    // console.log(res.statusCode);
+    // console.log(req.body)
     const { fname, lname, email, designation, address1, address2, phone, city, gender, states, zipcode, relationship_status, dateofbirth } = req.body
     let query = `insert into BASIC_DETAILS (FIRST_NAME,LAST_NAME,email,DESIGNATION,ADDRESS1,ADDRESS2,PHONE_NO,city,GENDER,ZIP_CODE,
           RELATIONSHIP_STATUS,DATE_OF_BIRTH,STATE) Values('${fname}','${lname}','${email}','${designation}','${address1}','${address2}',

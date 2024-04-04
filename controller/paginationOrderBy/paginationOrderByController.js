@@ -25,7 +25,7 @@ var paginationOrderBy = function (req, res) {
         console.log(err)
       }
       else {
-        console.log('data selected')
+        // console.log('data selected')
         console.log(result)
       }
 

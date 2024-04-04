@@ -17,6 +17,10 @@ const ajaxJobAppForm = require('./jobAppFormRoute')
 const timeZoneConvertor = require('./timeZoneConvertor')
 const ajaxPaginationPosts = require('./ajaxFetchApiPagination')
 const forgetPassword = require('./forgetPasswordRoute')
+const cssPractical1 = require('./cssPractical1')
+const cssPractical2 = require('./cssPractical2')
+const cssPractical3 = require('../controller/cssPractical3/cssPractical3')
+
 
 const router = express.Router()
 
@@ -38,5 +42,8 @@ router.use('/',ajaxJobAppForm)
 router.use('/',timeZoneConvertor)
 router.use('/',ajaxPaginationPosts)
 router.use('/',forgetPassword)
+router.use('/',cssPractical1)
+router.use('/',cssPractical2)
+router.use('/',cssPractical3)
 
 module.exports = router

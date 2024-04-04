@@ -2,7 +2,7 @@ const con = require('../../config/connection')
 var delimeterSearch =   function (req, res) {
 
     let name = req.query.search || ""
-    console.log(name)
+    // console.log(name)
   
       
     let firstname = [];
@@ -24,7 +24,7 @@ var delimeterSearch =   function (req, res) {
             }  
           }
           firstname.push(s)
-          console.log(firstname);
+          // console.log(firstname);
         }
   
         if (name[i] == '^') {      
@@ -130,7 +130,7 @@ var delimeterSearch =   function (req, res) {
         newquery += ') '
       }
       if (gender.length > 0) {
-        console.log(gender);
+        // console.log(gender);
         if (count > 0) {
           newquery += ' AND '
         }
@@ -163,7 +163,7 @@ var delimeterSearch =   function (req, res) {
       else{
        query1 = `select student_id,firstname,lastname,email,city,country,Gender from student_master1 where ${newquery} limit 200 `
       }
-      console.log(query1)
+      // console.log(query1)
    
       con.query(query1, function (err, result) {
         if (err) {

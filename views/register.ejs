@@ -305,7 +305,7 @@
            
                 
               let eleList = document.querySelectorAll('.required')
-              console.log(eleList)
+            //   console.log(eleList)
 
               let errors = document.querySelectorAll('.error')
 
@@ -343,7 +343,7 @@
                 return false;
             }
             if (!/^\S+@\S+\.\S+$/.test(email)) {
-                    console.log("inside if")
+                    // console.log("inside if")
                     document.getElementById("email").focus()
                     document.getElementById("error-email").textContent = "Please enter a valid email address"
                     return false;

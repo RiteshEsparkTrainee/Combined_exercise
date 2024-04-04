@@ -34,7 +34,7 @@ var save = async function(req,res)
                      reject(err)
                    }
                    else {
-                     console.log(result)
+                    //  console.log(result)
                      resolve(result.insertId)
                    }  
          
@@ -48,7 +48,7 @@ var save = async function(req,res)
                      reject(err)
                    }
                    else {
-                     console.log(result)
+                    //  console.log(result)
                      resolve(result)
                    }  
          

@@ -3,7 +3,7 @@ const con = require('../../config/connection')
 try{
 var updateUser = async function (req, res) {
     let id = req.query.id
-    console.log(id)
+    // console.log(id)
     let query = `select *,DATE_FORMAT(DATE_OF_BIRTH,"%Y-%m-%d") as DATE_OF_BIRTH from BASIC_DETAILS where EMPLOYEE_ID=${id}`
     let query2 = `select * from education_master where education_id = ${id}`
     let query3 = `select * from Languages_known where id=${id}`
