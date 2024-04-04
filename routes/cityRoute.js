@@ -1,9 +1,9 @@
 const express = require("express")
 var middleware = require('../middleware')
-let citiesController = require("../controller/cssPractical1/cssPractical1")
+let citiesController = require("../controller/stateCity/citiesController")
 
 const router = express.Router()
 
-router.get('/cssPractical1',middleware,citiesController)
+router.get('/api/cities',middleware,citiesController)
 
 module.exports =router
